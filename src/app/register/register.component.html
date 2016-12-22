@@ -1,0 +1,15 @@
+<div>
+    <form (ngSubmit)="onSumbit()">
+        <input type="text" name="name" [(ngModel)]="username" placeholder="Enter username">
+        <input type="text" name="name" [(ngModel)]="firstName" placeholder="Enter first name">
+        <input type="text" name="name" [(ngModel)]="lastName" placeholder="Enter last name">
+        <input type="password" name="name" [(ngModel)]="password" placeholder="Enter password">
+        <button>Register</button>
+    </form>
+</div>
+<div>
+    <p>username: {{username}}</p>
+    <p>firstName: {{firstName}}</p>
+    <p>lastName: {{lastName}}</p>
+    <p>password: {{password}}</p>
+</div>
