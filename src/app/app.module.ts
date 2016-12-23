@@ -6,11 +6,13 @@ import { HttpModule } from '@angular/http';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
-import { HomePageComponentComponent } from './home-page-component/home-page.component';
+import { HomePageComponentComponent } from './home-page/home-page.component';
 
 import { RouterModule } from '@angular/router';
 import { AboutPageComponent } from './about-page/about-page.component';
 import { ProfilePageComponent } from './profile-page/profile-page.component';
+import { LoginPageComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
 
 
 @NgModule({
@@ -18,7 +20,9 @@ import { ProfilePageComponent } from './profile-page/profile-page.component';
     AppComponent,
     HomePageComponentComponent,
     AboutPageComponent,
-    ProfilePageComponent
+    ProfilePageComponent,
+    LoginPageComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
