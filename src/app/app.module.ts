@@ -14,6 +14,7 @@ import { ProfilePageComponent } from './profile-page/profile-page.component';
 import { LoginPageComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 
+import { UserService } from '../services/user.service';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,7 @@ import { RegisterComponent } from './register/register.component';
     HttpModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [ UserService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

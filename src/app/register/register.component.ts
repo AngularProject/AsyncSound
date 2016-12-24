@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { User } from '../models/User';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-register',
@@ -8,19 +10,19 @@ import { User } from '../models/User';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-   user: User;
+  model: any = {};
 
-   username: string;
-   firstName: string;
-   lastName: string;
-   password: string;
-
-  constructor() { }
+  constructor(
+    private userService: UserService,
+    private router: Router) { }
 
   ngOnInit() {
   }
 
   onSumbit() {
-    alert('User ' + this.username + ' fakely registered');
+      // TODO: Make with Observable/Promise
+      this.userService.createUser(this.model);
+      alert('Registered');
+      this.router.navigate(['/login']);
   }
 }
