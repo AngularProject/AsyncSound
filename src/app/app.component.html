@@ -1,15 +1,15 @@
-<h1>
-    {{title}}
-</h1>
-<ul>
-    <li><a routerLink="/home">Home</a></li>
-    <li><a routerLink="/about">About</a></li>
-    <li><a routerLink="/profile">Profile</a></li>
-    <li><a routerLink="/register">Register</a></li>
-    <li><a routerLink="/playlists">Playlists (Link not working)</a></li>
-    <li><a routerLink="/charts">Charts (Link not working)</a></li>
-    <li><a routerLink="/login">Login (Link not working)</a></li>
-</ul>
-<div>
-    <router-outlet></router-outlet>
-</div>
+<nav>
+	<div class="grey darken-4 nav-wrapper">
+	    <a routerLink="/" class="brand-logo">AsyncSound Logo</a>
+		<ul id="nav-mobile" class="right hide-on-med-and-down">
+		    <li><a routerLink="/home">Home</a></li>
+		    <li><a routerLink="/about">About</a></li>
+		    <li><a routerLink="/profile">Profile</a></li>
+		    <li><a routerLink="/register">Register</a></li>
+		    <li><a routerLink="/playlists">Playlists (Link not working)</a></li>
+		    <li><a routerLink="/charts">Charts (Link not working)</a></li>
+		    <li><a routerLink="/login">Login</a></li>
+		</ul>
+	</div>
+</nav>
+<router-outlet></router-outlet>
