@@ -6,6 +6,7 @@ import { AboutPageComponent } from './about-page/about-page.component';
 import { ProfilePageComponent } from './profile-page/profile-page.component';
 import { RegisterComponent} from './register/register.component';
 import { LoginPageComponent} from './login/login.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -13,7 +14,8 @@ const routes: Routes = [
   { path: 'about', component: AboutPageComponent },
   { path: 'profile', component: ProfilePageComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'login', component: LoginPageComponent }
+  { path: 'login', component: LoginPageComponent },
+  { path: '**', component: PageNotFoundComponent }
 ];
 
 @NgModule({

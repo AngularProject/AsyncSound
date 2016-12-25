@@ -15,6 +15,7 @@ import { LoginPageComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 
 import { UserService } from '../services/user.service';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { UserService } from '../services/user.service';
     AboutPageComponent,
     ProfilePageComponent,
     LoginPageComponent,
-    RegisterComponent
+    RegisterComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,

@@ -22,6 +22,7 @@ export class LoginPageComponent implements OnInit {
       this.userService.loginUser(this.model.username, this.model.password);
       alert('Logged successfully');
       this.router.navigate(['/profile']);
+      // this.router.navigateByUrl('/profile');
   }
 
 }

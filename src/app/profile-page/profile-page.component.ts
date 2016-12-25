@@ -9,9 +9,9 @@ import { User } from '../models/User';
 export class ProfilePageComponent implements OnInit {
  currentUser: User;
 
-  constructor() { 
+  constructor() {
     this.currentUser = JSON.parse(localStorage.getItem('loggedUser'));
-    console.log(this.currentUser);
+   // console.log(this.currentUser);
   }
 
   ngOnInit() {
