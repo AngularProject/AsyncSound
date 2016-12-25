@@ -9,7 +9,7 @@
             <li><a [routerLink]="['/charts']">Charts</a></li>
             <li *ngIf="!currentUser"><a [routerLink]="['register']">Register</a></li>
             <li *ngIf="!currentUser"><a [routerLink]="['login']">Login</a></li>
-            <li *ngIf="currentUser"><a [routerLink]="['/logout']">Logout</a></li>
+            <li *ngIf="currentUser" (click)="logout()"><a>Logout</a></li>
         </ul>
     </div>
 </nav>
