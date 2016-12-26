@@ -23,6 +23,7 @@ export class UserService {
     loginUser(username: string, password: string) {
         // TODO: Make call to server!
         let foundUser = this.users.find(user => user.username === username && user.password === password);
+        console.log(foundUser);
         localStorage.setItem('loggedUser', JSON.stringify(foundUser));
     }
 

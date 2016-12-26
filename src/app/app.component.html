@@ -1,7 +1,8 @@
 <nav>
     <div class="grey darken-4 nav-wrapper">
-        <a routerLink="/" class="brand-logo">AsyncSound Logo</a>
-        <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <a href="#!" class="brand-logo">Logo</a>
+        <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+        <ul class="right hide-on-med-and-down">
             <li><a [routerLink]="['/home']">Home</a></li>
             <li><a [routerLink]="['/about']">About</a></li>
             <li *ngIf="currentUser"><a [routerLink]="['/profile']">Profile</a></li>

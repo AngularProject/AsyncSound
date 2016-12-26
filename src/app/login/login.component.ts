@@ -11,7 +11,8 @@ import { UserService } from '../../services/user.service';
 export class LoginPageComponent implements OnInit {
   model: any = {};
 
-  constructor(private userService: UserService,
+  constructor(
+  private userService: UserService,
   private router: Router) { }
 
   ngOnInit() {

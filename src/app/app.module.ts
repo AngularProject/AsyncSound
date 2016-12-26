@@ -3,10 +3,11 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
+import { SimpleNotificationsModule } from '../../node_modules/angular2-notifications';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
-import { HomePageComponentComponent } from './home-page/home-page.component';
+import { HomePageComponent } from './home-page/home-page.component';
 
 import { RouterModule } from '@angular/router';
 import { AboutPageComponent } from './about-page/about-page.component';
@@ -21,7 +22,7 @@ import { AuthGuard } from './guard/auth.guard';
 @NgModule({
   declarations: [
     AppComponent,
-    HomePageComponentComponent,
+    HomePageComponent,
     AboutPageComponent,
     ProfilePageComponent,
     LoginPageComponent,
@@ -32,6 +33,7 @@ import { AuthGuard } from './guard/auth.guard';
     BrowserModule,
     FormsModule,
     HttpModule,
+    SimpleNotificationsModule,
     AppRoutingModule
   ],
   providers: [ UserService, AuthGuard ],

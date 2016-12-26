@@ -6,7 +6,7 @@ import { User } from '../models/User';
   templateUrl: './home-page.component.html',
   styleUrls: ['./home-page.component.css']
 })
-export class HomePageComponentComponent implements OnInit {
+export class HomePageComponent implements OnInit {
   currentUser: User;
 
   constructor() { 
