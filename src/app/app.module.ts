@@ -12,10 +12,11 @@ import { RouterModule } from '@angular/router';
 import { AboutPageComponent } from './about-page/about-page.component';
 import { ProfilePageComponent } from './profile-page/profile-page.component';
 import { LoginPageComponent } from './login/login.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { RegisterComponent } from './register/register.component';
 
 import { UserService } from '../services/user.service';
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { AuthGuard } from './guard/auth.guard';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     HttpModule,
     AppRoutingModule
   ],
-  providers: [ UserService ],
+  providers: [ UserService, AuthGuard ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
