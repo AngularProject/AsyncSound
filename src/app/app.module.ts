@@ -15,8 +15,10 @@ import { ProfilePageComponent } from './profile-page/profile-page.component';
 import { LoginPageComponent } from './login/login.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { RegisterComponent } from './register/register.component';
+import { PlaylistComponent } from './playlist/playlist.component';
 
 import { UserService } from '../services/user.service';
+import { PlaylistService } from '../services/playlist.service';
 import { AuthGuard } from './guard/auth.guard';
 
 @NgModule({
@@ -27,7 +29,8 @@ import { AuthGuard } from './guard/auth.guard';
     ProfilePageComponent,
     LoginPageComponent,
     RegisterComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    PlaylistComponent
   ],
   imports: [
     BrowserModule,
@@ -36,7 +39,7 @@ import { AuthGuard } from './guard/auth.guard';
     SimpleNotificationsModule,
     AppRoutingModule
   ],
-  providers: [ UserService, AuthGuard ],
+  providers: [ UserService, PlaylistService, AuthGuard ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

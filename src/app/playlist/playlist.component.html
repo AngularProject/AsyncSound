@@ -1,0 +1,24 @@
+<h3>Playlists</h3>
+<div class="">
+    <ul class="collection">
+        <li class="collection-item avatar card-panel teal lighten-4" *ngFor="let playlist of playlists">
+            <i class="material-icons circle red">play_arrow</i>
+            <span class="title">Title: {{playlist.title}}</span>
+            <p>By: {{playlist.creator}}
+                <br>Likes: {{playlist.voteUp[0]}}
+            </p>
+            Songs:
+            <ul>
+                <li *ngFor="let song of playlist.songs; let i = index">
+                    {{i+1}}. "{{song}}""
+                </li>
+            </ul>
+            Comments:
+            <ul>
+                <li *ngFor="let comment of playlist.comments">
+                    {{comment.author}}: {{comment.content}}
+                </li>
+            </ul>
+        </li>
+    </ul>
+</div>

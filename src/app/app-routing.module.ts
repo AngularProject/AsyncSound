@@ -6,6 +6,7 @@ import { AboutPageComponent } from './about-page/about-page.component';
 import { ProfilePageComponent } from './profile-page/profile-page.component';
 import { RegisterComponent} from './register/register.component';
 import { LoginPageComponent} from './login/login.component';
+import { PlaylistComponent } from './playlist/playlist.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 import { AuthGuard } from './guard/auth.guard';
@@ -17,6 +18,7 @@ const routes: Routes = [
   { path: 'profile', component: ProfilePageComponent, canActivate: [AuthGuard] },
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginPageComponent },
+  { path: 'playlists', component: PlaylistComponent },
   { path: '**', component: PageNotFoundComponent }
 ];
 
