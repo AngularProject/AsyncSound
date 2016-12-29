@@ -10,26 +10,79 @@ import { Comment } from '../models/comment';
   templateUrl: './playlist.component.html',
   styleUrls: ['./playlist.component.css']
 })
-export class PlaylistComponent implements OnInit {
-	playlists: Playlist[] = [];
 
-  constructor(private playlistService: PlaylistService) { 
+export class PlaylistComponent implements OnInit {
+  playlists: Playlist[] = [];
+  audioInfo: any;
+  isPaused = false;
+  currentTime: any;
+
+  constructor(private playlistService: PlaylistService) {
   }
 
   ngOnInit() {
-  	let testComment = new Comment('mnogo qk playlist', 'lud fen', Date.now(), ['1'], ['0']);
+    let testComment = new Comment('mnogo qk playlist', 'lud fen', Date.now(), ['1'], ['0']);
 
-  	this.playlistService.createPlaylist(new Playlist('BG rap', 'FenNaQvkata', Date.now(), [ 'Pojarogasitel', 'Podobren' ], [ 'lud fen' ], [ '5'], [ '0' ], [ testComment ]));
-  	this.playlistService.createPlaylist(new Playlist('BG rap some more', 'Dimaka RULES', Date.now(), [ '420', 'Body' ], [ 'lud fen' ], [ '7'], [ '0' ], [ testComment ]));
-  	this.playlistService.createPlaylist(new Playlist('BG rap za posledno', 'GarjokaSelski', Date.now(), [ 'Ne pomnq', 'kak se kazvashe' ], [ 'lud fen' ], [ '2'], [ '0' ], [ testComment ]));
-  	this.playlistService.createPlaylist(new Playlist('BG rap samo znam', 'Alex P', Date.now(), [ 'Nalei', 'Belucci' ], [ 'lud fen' ], [ '9'], [ '0' ], [ testComment ]));
-  	this.playlists = this.playlistService.getAllPlaylists();
+    this.playlistService.createPlaylist(
+      new Playlist('BG rap',
+       'FenNaQvkata',
+       Date.now(),
+        [ 'Pojarogasitel', 'Podobren' ],
+        [ 'lud fen' ], [ '5'], [ '0' ],
+        [ testComment ]));
+
+    this.playlistService.createPlaylist(
+      new Playlist('BG rap some more',
+       'Dimaka RULES',
+        Date.now(),
+         [ '420', 'Body' ],
+          [ 'lud fen' ],
+           [ '7'],
+            [ '0' ],
+             [ testComment ]));
+
+ this.playlistService.createPlaylist(
+      new Playlist('BG rap za posledno',
+       'GarjokaSelski',
+        Date.now(),
+         [ 'Ne pomnq', 'kak se kazvashe' ],
+          [ 'lud fen' ],
+           [ '2'], [ '0' ],
+            [ testComment ]));
+
+    this.playlistService.createPlaylist(
+      new Playlist('BG rap samo znam',
+       'Alex P',
+        Date.now(),
+        [ 'Nalei', 'Belucci' ],
+         [ 'lud fen' ],
+          [ '9'],
+          [ '0' ], [ testComment ]));
+    this.playlists = this.playlistService.getAllPlaylists();
   }
 
   play() {
+    if (this.audioInfo) {
+      if (this.audioInfo.paused) {
+        this.isPaused = false;
+        this.audioInfo.play();
+        return this.audioInfo;
+      } else if (this.audioInfo.onplay) {
+        console.log(this.audioInfo.onplay);
+      }
+    }
+
     let audio = new Audio();
     audio.src = 'https://a.clyp.it/pmajv2ut.ogg';
     audio.load();
     audio.play();
+    this.isPaused = false;
+    return audio;
+  }
+
+  stop() {
+    this.audioInfo.pause();
+    this.isPaused = true;
+    console.log('paused');
   }
 }
