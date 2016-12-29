@@ -26,4 +26,10 @@ export class PlaylistComponent implements OnInit {
   	this.playlists = this.playlistService.getAllPlaylists();
   }
 
+  play() {
+    let audio = new Audio();
+    audio.src = 'https://a.clyp.it/pmajv2ut.ogg';
+    audio.load();
+    audio.play();
+  }
 }
