@@ -1,3 +1,4 @@
+import { Login } from '../models/Login';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -12,18 +13,19 @@ import { LoginService } from '../../services/login.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginPageComponent implements OnInit {
-  model: any = {};
+  model: Login;
 
   constructor(
   private loginService: LoginService,
   private notification: NotificationsService,
   private router: Router) {
-   }
+    this.model = new Login();
+  }
 
   ngOnInit() {
   }
 
-  login() {
+  public login(): void {
     this.loginService
       .loginUser(this.model)
       .subscribe((response: any) => {
@@ -36,7 +38,7 @@ export class LoginPageComponent implements OnInit {
             this.notification.success('Login successful!', 'Hi');
             this.router.navigateByUrl('/home');
           }
-      });
+      },() => this.notification.error('Login failed!', 'Please try again.'));
   }
 
 }

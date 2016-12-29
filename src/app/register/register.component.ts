@@ -5,6 +5,8 @@ import { NotificationsService } from '../../../node_modules/angular2-notificatio
 import { RegisterService, UserService } from '../../services';
 
 import { User } from '../models/User';
+import { Register } from '../models/Register';
+
 
 @Component({
   selector: 'app-register',
@@ -12,13 +14,15 @@ import { User } from '../models/User';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-  model: any = {};
+  model: Register;
   options: Object;
 
   constructor(
     private registerService: RegisterService,
     private router: Router,
-    private notification: NotificationsService) { }
+    private notification: NotificationsService) { 
+        this.model = new Register();
+    }
 
   ngOnInit() {
       this.options = { 
@@ -34,7 +38,7 @@ export class RegisterComponent implements OnInit {
       this.registerService
           .registerUser(this.model)
           .subscribe(response => {
-              if(response.message) {
+              if(response.error) {
                   this.notification.error("Registration failed", "User exist");
               } else {
                   this.notification.success("Registration succesful", "You are logged")
