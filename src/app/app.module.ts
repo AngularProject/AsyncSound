@@ -16,7 +16,8 @@ import { LoginPageComponent } from './login/login.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { RegisterComponent } from './register/register.component';
 
-import { UserService } from '../services/user.service';
+import { HttpOptionsService, RegisterService, LoginService, UserService } from '../services';
+
 import { AuthGuard } from './guard/auth.guard';
 
 @NgModule({
@@ -36,7 +37,7 @@ import { AuthGuard } from './guard/auth.guard';
     SimpleNotificationsModule,
     AppRoutingModule
   ],
-  providers: [ UserService, AuthGuard ],
+  providers: [ HttpOptionsService, RegisterService, LoginService, UserService, AuthGuard ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
