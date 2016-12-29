@@ -1,24 +1,84 @@
-<h3>Playlists</h3>
-<div class="">
-    <ul class="collection">
-        <li class="collection-item avatar card-panel teal lighten-4" *ngFor="let playlist of playlists">
-            <i class="material-icons circle red">play_arrow</i>
-            <span class="title">Title: {{playlist.title}}</span>
-            <p>By: {{playlist.creator}}
-                <br>Likes: {{playlist.voteUp[0]}}
-            </p>
-            Songs:
-            <ul>
-                <li *ngFor="let song of playlist.songs; let i = index">
-                    {{i+1}}. "{{song}}""
-                </li>
-            </ul>
-            Comments:
-            <ul>
-                <li *ngFor="let comment of playlist.comments">
-                    {{comment.author}}: {{comment.content}}
-                </li>
-            </ul>
-        </li>
-    </ul>
+<h1>Playlists</h1>
+<div *ngFor="let playlist of playlists" data-target=".nav-container" data-offset="80" data-gr-c-s-loaded="true">
+    <div id="new-releases" class="new-releases container">
+        <div class="row">
+            <div class="col-md-6 releases">
+                <h4>{{playlist.title}}</h4>
+                <p>By: {{playlist.creator}}
+                    <br>Likes: {{playlist.voteUp[0]}}
+                </p>
+                <div id="jp_container_N" class="jplayer-home">
+                    <div class="jp-type-playlist">
+                        <div id="jquery_jplayer_N" class="jp-jplayer" style="width: 80px; height: 80px;">
+                            <img id="jp_poster_0" style="width: 80px; height: 80px; display: inline;" src="./Instrument_files/poster-2.jpg">
+                            <audio id="jp_audio_0" preload="metadata" src="https://a.clyp.it/05gjebfw.ogg" title="Kyle Hall Live At Monsterland">
+                            </audio>
+                        </div>
+                        <div class="jp-gui">
+                            <div id="nowPlaying">
+                                <span class="artist-name">{{playlist.songs[0]}}</span>
+                                <br>
+                                <span class="track-name">{{playlist.songs[0]}}</span>
+                            </div>
+                            <div class="jp-interface">
+                                <div class="jp-progress">
+                                    <div class="jp-seek-bar" style="width: 100%;">
+                                        <div class="jp-play-bar" style="width: 0%;"></div>
+                                    </div>
+                                </div>
+                                <div class="time left">
+                                    <span class="jp-current-time" role="timer" aria-label="time">00:00</span>
+                                </div>
+                                <div class="time right clearfix">
+                                    <span class="jp-duration" role="timer" aria-label="duration">03:29</span>
+                                </div>
+                                <div class="jp-controls-holder">
+                                    <div class="jp-controls">
+                                        <button class="jp-previous" tabindex="0"> 
+                                            <i class="material-icons white-text text-darken-4 jp-previous">skip_previous</i></button>
+                                        <button class="jp-play" tabindex="0">
+                                            <i class="material-icons white-text text-darken-4 jp-play">play_arrow</i>
+                                            </button>
+                                        <button class="jp-stop" tabindex="0">
+                                            <i class="material-icons white-text text-darken-4 jp-stop">stop</i>
+                                            </button>
+                                        <button class="jp-next" tabindex="0"> 
+                                        <i class="material-icons white-text text-darken-4 jp-next">skip_next</i>
+                                            
+                                        </button>
+                                    </div>
+
+                                    <div class="jp-toggles">
+                                        <button class="jp-repeat" tabindex="0">
+                                            <i class="material-icons white-text text-darken-4 jp-repeat">replay</i>                                            
+                                        </button>
+                                        <button class="jp-shuffle" tabindex="0">
+                                            <i class="material-icons white-text text-darken-4 jp-shuffle">shuffle</i>                                         
+                                        </button>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="jp-playlist">
+                            <ul style="display: block;">
+                                <li *ngFor="let song of playlist.songs; let i = index">
+                                    <div class="info-wrapper"><a href="javascript:;" class="jp-playlist-item-remove" style="display: none;">×</a>
+                                        <a href="javascript:;" class="jp-playlist-item jp-playlist-current" tabindex="0">
+                                            <span class="jp-title"> {{song}}</span> <span class="jp-artist"> Artist</span>
+                                            <span class="time"> 03:29</span>
+                                        </a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="jp-no-solution" style="display: none;">
+                            <span>Update Required</span> To play the media you will need to either update your browser to a recent version or update your <a href="http://get.adobe.com/flashplayer/" target="_blank">Flash plugin</a>.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
