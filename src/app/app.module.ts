@@ -15,8 +15,9 @@ import { ProfilePageComponent } from './profile-page/profile-page.component';
 import { LoginPageComponent } from './login/login.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { RegisterComponent } from './register/register.component';
+import { PlaylistComponent } from './playlist/playlist.component';
 
-import { HttpOptionsService, RegisterService, LoginService, UserService } from '../services';
+import { HttpOptionsService, RegisterService, LoginService, UserService , PlaylistService } from '../services';
 
 import { AuthGuard } from './guard/auth.guard';
 
@@ -28,7 +29,8 @@ import { AuthGuard } from './guard/auth.guard';
     ProfilePageComponent,
     LoginPageComponent,
     RegisterComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    PlaylistComponent
   ],
   imports: [
     BrowserModule,
@@ -37,7 +39,7 @@ import { AuthGuard } from './guard/auth.guard';
     SimpleNotificationsModule,
     AppRoutingModule
   ],
-  providers: [ HttpOptionsService, RegisterService, LoginService, UserService, AuthGuard ],
+  providers: [ HttpOptionsService, RegisterService, LoginService, UserService, AuthGuard, PlaylistService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

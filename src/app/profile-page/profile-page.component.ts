@@ -11,7 +11,6 @@ export class ProfilePageComponent implements OnInit {
 
   constructor() {
     this.currentUser = JSON.parse(localStorage.getItem('loggedUser'));
-   // console.log(this.currentUser);
   }
 
   ngOnInit() {
