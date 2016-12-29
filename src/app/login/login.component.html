@@ -1,5 +1,5 @@
 <div>
-    <form (ngSubmit)="onSumbit()">
+    <form (ngSubmit)="login()">
         <div class="form-group">
             <label for="username">Username: </label>
             <input type="text" class="form-control" name="username" [(ngModel)]="model.username" #username="ngModel" required />
@@ -14,4 +14,3 @@
     </form>
     <!-- <simple-notifications [options]="options"></simple-notifications> -->
 </div>
-    
