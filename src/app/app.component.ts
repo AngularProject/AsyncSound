@@ -10,7 +10,6 @@ import { UserService } from '../services/user.service';
 })
 export class AppComponent implements OnInit{
   currentUser: User;
-  title = 'AsyncSound welcomes you!';
 
   constructor(private userService: UserService) {
      this.currentUser = JSON.parse(localStorage.getItem('loggedUser'));

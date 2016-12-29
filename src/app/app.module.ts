@@ -20,6 +20,7 @@ import { PlaylistComponent } from './playlist/playlist.component';
 import { HttpOptionsService, RegisterService, LoginService, UserService , PlaylistService } from '../services';
 
 import { AuthGuard } from './guard/auth.guard';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { AuthGuard } from './guard/auth.guard';
     LoginPageComponent,
     RegisterComponent,
     PageNotFoundComponent,
-    PlaylistComponent
+    PlaylistComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,10 @@
+div.main {
+	padding: 20px;
+	border-color: rgba(0,0,0,.5);
+    background-color: rgba(243, 243, 243, 0.15);
+}
+
+.parallax-container {
+	background-image: url("/images/background.jpg");
+	background-repeat: repeat-y;
+}
