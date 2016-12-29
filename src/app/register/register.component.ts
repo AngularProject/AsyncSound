@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { NotificationsService } from '../../../node_modules/angular2-notifications';
-import { UserService } from '../../services/user.service';
+import { RegisterService, UserService } from '../../services';
 
 import { User } from '../models/User';
 
@@ -16,9 +16,9 @@ export class RegisterComponent implements OnInit {
   options: Object;
 
   constructor(
-    private userService: UserService,
+    private registerService: RegisterService,
     private router: Router,
-    private _notification: NotificationsService) { }
+    private notification: NotificationsService) { }
 
   ngOnInit() {
       this.options = { 
@@ -30,17 +30,16 @@ export class RegisterComponent implements OnInit {
     };
   }
 
-  onSumbit() {
-      // TODO: Make with Observable/Promise
-      this.userService.createUser(this.model);
-            // .subscribe((res: any) => {
-            // this._notification.success('', res.body.message);
-            // setTimeout(() => this._router.navigateByUrl('/login'), 2500);
-            // },
-            // (err: any) => {
-            //   let notificationMsg = JSON.parse(err._body).message;
-            //   this._notification.error('', notificationMsg);})
-      alert('Registered');
-      this.router.navigate(['/login']);
+  register() {
+      this.registerService
+          .registerUser(this.model)
+          .subscribe(response => {
+              if(response.message) {
+                  this.notification.error("Registration failed", "User exist");
+              } else {
+                  this.notification.success("Registration succesful", "You are logged")
+                  setTimeout(() => this.router.navigateByUrl('/login'), 500);
+              }
+          });
   }
 }
