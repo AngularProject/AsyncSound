@@ -1,0 +1,18 @@
+.register-form {
+    position: relative;
+
+    width: 700px;
+    height: 460px;
+
+    /* Center form on page horizontally & vertically */
+    top: 50%;
+    left: 50%;
+    margin-top: 70px;
+    margin-bottom: 70px;
+    margin-left: -200px;
+}
+
+button {
+	bottom: 10px;
+	left: 80px;
+}

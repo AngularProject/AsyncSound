@@ -1,5 +1,5 @@
-<div class="row">
-    <div class="card-panel hoverable col s6">
+<div class="register-form row">
+    <div class="card-panel hoverable col s6 blue-grey lighten-5">
         <form (ngSubmit)="register()">
             <div class="form-group input-field">
                 <i class="material-icons prefix">account_circle</i>
@@ -19,10 +19,10 @@
             </div>
             <div class="form-group input-field">
                 <i class="material-icons prefix">account_circle</i>
-                <input type="password" class="form-control" name="email" [(ngModel)]="model.email" #email="ngModel" required placeholder="Email" />
+                <input type="text" class="form-control" name="email" [(ngModel)]="model.email" #email="ngModel" required placeholder="Email" />
             </div>
             <button class="btn waves-effect waves-light form-group" type="submit" name="action">Register
-                <i class="material-icons right">send</i>
+                <i class="material-icons">send</i>
             </button>
         </form>
         <simple-notifications [options]="options"></simple-notifications>
