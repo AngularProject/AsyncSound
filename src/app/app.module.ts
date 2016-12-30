@@ -10,21 +10,21 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 import { HomePageComponent } from './home-page/home-page.component';
-
 import { AboutPageComponent } from './about-page/about-page.component';
 import { ProfilePageComponent } from './profile-page/profile-page.component';
 import { LoginPageComponent } from './login/login.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { RegisterComponent } from './register/register.component';
 import { PlaylistComponent } from './playlist/playlist.component';
+import { FooterComponent } from './footer/footer.component';
+import { AdminPageComponent } from './admin-page/admin-page.component';
+import { SearchPlaylistComponent } from './search-playlist/search-playlist.component';
+import { SearchPlaylistPipe } from './pipes/search.pipe';
 
 import { HttpOptionsService, RegisterService, LoginService, UserService , PlaylistService, AdminService } from '../services';
 
 import { AuthGuard } from './guard/auth.guard';
 import { AdminGuard } from './guard/admin.guard';
-
-import { FooterComponent } from './footer/footer.component';
-import { AdminPageComponent } from './admin-page/admin-page.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +37,9 @@ import { AdminPageComponent } from './admin-page/admin-page.component';
     PageNotFoundComponent,
     PlaylistComponent,
     FooterComponent,
-    AdminPageComponent
+    AdminPageComponent,
+    SearchPlaylistComponent,
+    SearchPlaylistPipe
   ],
   imports: [
     BrowserModule,

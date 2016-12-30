@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { PlaylistService } from '../../services/playlist.service';
+import { SearchPlaylistPipe } from '../pipes/search.pipe';
 
 import { Playlist } from '../models/playlist';
 import { Comment } from '../models/comment';
@@ -16,6 +17,8 @@ export class PlaylistComponent implements OnInit {
   audioInfo: any;
   isPaused = false;
   currentTime: any;
+
+  searchByText: string;
 
   constructor(private playlistService: PlaylistService) {
   }
@@ -84,5 +87,9 @@ export class PlaylistComponent implements OnInit {
     this.audioInfo.pause();
     this.isPaused = true;
     console.log('paused');
+  }
+
+  onSearchTextChange(searchValue: string) {
+    this.searchByText = searchValue;
   }
 }

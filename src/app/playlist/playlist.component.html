@@ -1,5 +1,7 @@
-<h1>Playlists</h1>
-<div *ngFor="let playlist of playlists; let i = index" data-target=".nav-container" data-offset="80" data-gr-c-s-loaded="true">
+<section class="container">
+    <app-search-playlist (onSearchTextChange)="onSearchTextChange($event)"></app-search-playlist>
+</section>
+<div *ngFor="let playlist of (playlists | search: searchByText); let i = index" data-target=".nav-container" data-offset="80" data-gr-c-s-loaded="true">
     <div class="new-releases container">
         <div class="row">
             <div class="col-md-6 releases">
