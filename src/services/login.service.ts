@@ -12,9 +12,8 @@ const LOGOUT_URL: string = 'http://localhost:3000/auth/logout';
 
 @Injectable()
 export class LoginService {
-    isUserLogIn: Subject<boolean>;
+    
     constructor(private http: Http, private httpOptionService: HttpOptionsService) {
-        this.isUserLogIn = new Subject<boolean>();
     }
 
     // TO DO ===> VERIFYING!
@@ -26,10 +25,6 @@ export class LoginService {
         }
         
         return true;
-    }
-
-    public IsUserLoggedSubject(): Observable<boolean> {
-        return this.isUserLogIn.asObservable();
     }
 
     public loginUser(data: Object): Observable<any> {

@@ -1,11 +1,11 @@
+import * as console from 'console';
 import { Login } from '../models/Login';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { NotificationsService } from '../../../node_modules/angular2-notifications';
 
-import { UserService } from '../../services/user.service';
-import { LoginService } from '../../services/login.service';
+import { UserService, LoginService } from '../../services';
 
 @Component({
   selector: 'app-login-page',
@@ -16,6 +16,7 @@ export class LoginPageComponent implements OnInit {
   model: Login;
 
   constructor(
+  private userService: UserService,
   private loginService: LoginService,
   private notification: NotificationsService,
   private router: Router) {
@@ -35,10 +36,10 @@ export class LoginPageComponent implements OnInit {
             this.notification.error('Login failed!', 'Please try again.');
           } else {
             localStorage.setItem('user', JSON.stringify(result));
+            this.userService.setUserLogged();
             this.notification.success('Login successful!', 'Hi');
             this.router.navigateByUrl('/home');
           }
       },() => this.notification.error('Login failed!', 'Please try again.'));
   }
-
 }

@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { User } from './models/User';
-import { UserService } from '../services/user.service';
-import { LoginService} from '../services';
+import { UserService, LoginService } from '../services';
+
 
 @Component({
   selector: 'app-root',
@@ -14,20 +15,20 @@ export class AppComponent implements OnInit{
 
   isUserLogged: Boolean;
 
-  constructor(private userService: UserService, private loginService: LoginService) {
-     //this.currentUser = JSON.parse(localStorage.getItem('loggedUser'));
+  constructor(private userService: UserService, private loginService: LoginService, private router: Router) {
      this.isUserLogged = !!localStorage.getItem('user');
   }
 
   ngOnInit() {
-    this.loginService
-        .IsUserLoggedSubject()
+    this.userService
+        .getUserLogged()
         .subscribe((isLogged: boolean) => this.isUserLogged = isLogged);
   }
 
   logout() {
-    // Make call to UserService
-    this.userService.logoutUser();
-      alert('Logged out successfully');
+    this.loginService.logoutUser();
+    this.router.navigateByUrl('/');
+    this.userService.setUserLogged();
+    alert('Logged out successfully');
   }
 }
