@@ -1,7 +1,9 @@
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
+import { Subject } from 'rxjs/Subject';
 import 'rxjs/add/operator/map';
+
 
 import { HttpOptionsService } from './http.options.service';
 
@@ -10,8 +12,9 @@ const LOGOUT_URL: string = 'http://localhost:3000/auth/logout';
 
 @Injectable()
 export class LoginService {
-
+    isUserLogIn: Subject<boolean>;
     constructor(private http: Http, private httpOptionService: HttpOptionsService) {
+        this.isUserLogIn = new Subject<boolean>();
     }
 
     // TO DO ===> VERIFYING!
@@ -23,6 +26,10 @@ export class LoginService {
         }
         
         return true;
+    }
+
+    public IsUserLoggedSubject(): Observable<boolean> {
+        return this.isUserLogIn.asObservable();
     }
 
     public loginUser(data: Object): Observable<any> {

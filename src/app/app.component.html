@@ -5,12 +5,12 @@
         <ul class="right hide-on-med-and-down">
             <li><a [routerLink]="['/home']">Home</a></li>
             <li><a [routerLink]="['/about']">About</a></li>
-            <li *ngIf="currentUser"><a [routerLink]="['/profile']">Profile</a></li>
+            <li *ngIf="isUserLogged"><a [routerLink]="['/profile']">Profile</a></li>
             <li><a [routerLink]="['/playlists']">Playlists</a></li>
             <li><a [routerLink]="['/charts']">Charts</a></li>
-            <li *ngIf="!currentUser"><a [routerLink]="['register']">Register</a></li>
-            <li *ngIf="!currentUser"><a [routerLink]="['login']">Login</a></li>
-            <li *ngIf="currentUser" (click)="logout()"><a>Logout</a></li>
+            <li *ngIf="!isUserLogged"><a [routerLink]="['register']">Register</a></li>
+            <li *ngIf="!isUserLogged"><a [routerLink]="['login']">Login</a></li>
+            <li *ngIf="isUserLogged" (click)="logout()"><a>Logout</a></li>
         </ul>
     </div>
 </nav>
