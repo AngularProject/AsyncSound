@@ -4,12 +4,16 @@ import { Observable } from 'rxjs/Observable';
 import { Subject } from 'rxjs/Subject';
 import 'rxjs/add/operator/map';
 
+import { HttpOptionsService } from './http.options.service';
+
+const SET_ROLE_URL = 'http://localhost:3000/user-role';
+
 @Injectable()
 export class AdminService {
     private isUserAdmin: boolean;
     private isUserAdminSubject: Subject<boolean>;
 
-    constructor() {
+     constructor(private http: Http, private httpOptionsService: HttpOptionsService) {
         this.isUserAdminSubject = new Subject<boolean>();
     }
 
@@ -27,7 +31,15 @@ export class AdminService {
         }
     }
 
-    public setUserAsAdmin(username: string) {
+    public setUserAsAdmin(data: Object): Observable<any> {
+        let body: string = JSON.stringify(data);
+        let options: RequestOptions = this.httpOptionsService.getRequestOptions();
 
+        console.log(body);
+        console.log(options);
+
+        return this.http
+            .post(SET_ROLE_URL, body, options)
+            .map((res: Response) => res.json());
     }
 }
