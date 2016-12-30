@@ -14,6 +14,7 @@ import { UserService, LoginService } from '../../services';
 })
 export class LoginPageComponent implements OnInit {
   model: Login;
+  options: Object;
 
   constructor(
   private userService: UserService,
@@ -24,21 +25,26 @@ export class LoginPageComponent implements OnInit {
   }
 
   ngOnInit() {
+      this.options = { 
+      timeOut: 2500, 
+      pauseOnHover: true, 
+      showProgressBar: false, 
+      animate: 'scale', 
+      position: ['right', 'top'] 
+    };
   }
 
   public login(): void {
     this.loginService
       .loginUser(this.model)
       .subscribe((response: any) => {
-          let result: any = (typeof (response) === 'string') ? JSON.parse(response): response;
-
-          if(result.error) {
-            this.notification.error('Login failed!', 'Please try again.');
+          if(response.error) {
+            this.notification.error('Login failed!', response.message);
           } else {
-            localStorage.setItem('user', JSON.stringify(result));
+            localStorage.setItem('user', JSON.stringify(response));
             this.userService.setUserLogged();
-            this.notification.success('Login successful!', 'Hi');
-            this.router.navigateByUrl('/home');
+            this.notification.success('Login successful!', 'Welcome');
+            setTimeout(() => this.router.navigateByUrl('/home'), 1500);
           }
       },() => this.notification.error('Login failed!', 'Please try again.'));
   }

@@ -13,6 +13,7 @@
             <li *ngIf="isUserLogged" (click)="logout()"><a>Logout</a></li>
         </ul>
     </div>
+    <simple-notifications [options]="options"></simple-notifications>
 </nav>
 <router-outlet></router-outlet>
 <app-footer></app-footer>

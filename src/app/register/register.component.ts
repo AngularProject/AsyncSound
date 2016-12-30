@@ -39,10 +39,10 @@ export class RegisterComponent implements OnInit {
           .registerUser(this.model)
           .subscribe(response => {
               if(response.error) {
-                  this.notification.error("Registration failed", "User exist");
+                  this.notification.error("Registration failed", response.error);
               } else {
-                  this.notification.success("Registration succesful", "You are logged")
-                  setTimeout(() => this.router.navigateByUrl('/login'), 500);
+                  this.notification.success("Registration succesful", response.message)
+                  setTimeout(() => this.router.navigateByUrl('/login'), 1500);
               }
           });
   }
