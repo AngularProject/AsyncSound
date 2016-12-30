@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { RouterModule } from '@angular/router';
 
 import { SimpleNotificationsModule } from '../../node_modules/angular2-notifications';
 import { AppRoutingModule } from './app-routing.module';
@@ -9,7 +10,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomePageComponent } from './home-page/home-page.component';
 
-import { RouterModule } from '@angular/router';
 import { AboutPageComponent } from './about-page/about-page.component';
 import { ProfilePageComponent } from './profile-page/profile-page.component';
 import { LoginPageComponent } from './login/login.component';
@@ -17,10 +17,13 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { RegisterComponent } from './register/register.component';
 import { PlaylistComponent } from './playlist/playlist.component';
 
-import { HttpOptionsService, RegisterService, LoginService, UserService , PlaylistService } from '../services';
+import { HttpOptionsService, RegisterService, LoginService, UserService , PlaylistService, AdminService } from '../services';
 
 import { AuthGuard } from './guard/auth.guard';
+import { AdminGuard } from './guard/admin.guard';
+
 import { FooterComponent } from './footer/footer.component';
+import { AdminPageComponent } from './admin-page/admin-page.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +35,8 @@ import { FooterComponent } from './footer/footer.component';
     RegisterComponent,
     PageNotFoundComponent,
     PlaylistComponent,
-    FooterComponent
+    FooterComponent,
+    AdminPageComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +45,16 @@ import { FooterComponent } from './footer/footer.component';
     SimpleNotificationsModule,
     AppRoutingModule
   ],
-  providers: [ HttpOptionsService, RegisterService, LoginService, UserService, AuthGuard, PlaylistService],
+  providers: [
+    HttpOptionsService,
+    RegisterService,
+    LoginService,
+    UserService,
+    AuthGuard,
+    PlaylistService,
+    AdminService,
+    AdminGuard
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

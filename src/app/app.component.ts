@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { User } from './models/User';
-import { UserService, LoginService } from '../services';
+import { UserService, LoginService, AdminService } from '../services';
 
 import { NotificationsService } from '../../node_modules/angular2-notifications';
 
@@ -15,28 +15,45 @@ export class AppComponent implements OnInit{
   currentUser: User;
   options: Object;
   isUserLogged: Boolean;
+  isUserAdmin: Boolean;
 
-  constructor(private userService: UserService, private loginService: LoginService, private router: Router, private notification: NotificationsService) {
+  constructor(
+      private userService: UserService,
+      private loginService: LoginService,
+      private router: Router,
+      private notification: NotificationsService,
+      private adminService: AdminService) {
     this.isUserLogged = !!localStorage.getItem('user');
-    this.options = { 
-      timeOut: 2500, 
-      pauseOnHover: true, 
-      showProgressBar: false, 
-      animate: 'scale', 
-      position: ['right', 'top'] 
+    this.options = {
+      timeOut: 2500,
+      pauseOnHover: true,
+      showProgressBar: false,
+      animate: 'scale',
+      position: ['right', 'top']
     };
+
+    let currentUser = JSON.parse(localStorage.getItem('user'));
+    if (this.isUserLogged ) {
+        if (currentUser.roles.indexOf('admin') >= 0){
+          this.isUserAdmin = true;
+        }
+    }
   }
 
   ngOnInit() {
     this.userService
         .getUserLogged()
         .subscribe((isLogged: boolean) => this.isUserLogged = isLogged);
+
+    this.adminService
+        .getUserAdmin()
+        .subscribe((isAdmin: boolean) => this.isUserAdmin = isAdmin);
   }
 
   logout() {
     this.loginService.logoutUser();
     this.userService.setUserLogged();
-    this.notification.success('Logged out successfully', 'Goodbay :)');
-    setTimeout(() => this.router.navigateByUrl('/'),1000);
+    this.notification.success('Logged out successfully', 'Goodbye :)');
+    setTimeout(() => this.router.navigateByUrl('/'), 1000);
   }
 }
