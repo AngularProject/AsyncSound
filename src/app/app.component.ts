@@ -33,7 +33,10 @@ export class AppComponent implements OnInit{
     };
 
     let currentUser = JSON.parse(localStorage.getItem('user'));
-    if (this.isUserLogged ) {
+    console.log(currentUser);
+    if (!!currentUser) {
+    console.log(currentUser.roles);
+      
         if (currentUser.roles.indexOf('admin') >= 0){
           this.isUserAdmin = true;
         }

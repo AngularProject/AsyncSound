@@ -5,6 +5,7 @@ import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 
 import { SimpleNotificationsModule } from '../../node_modules/angular2-notifications';
+// import { Ng2AutoCompleteModule } from '../../node_modules/ng2-auto-complete/dist/ng2-auto-complete.umd';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';

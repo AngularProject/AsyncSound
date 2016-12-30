@@ -18,7 +18,16 @@ export class AdminService {
     }
 
     public setUserAdmin(): void {
-        this.isUserAdmin = JSON.parse(localStorage.getItem('user')).roles.indexOf('admin') >= 0;
-        this.isUserAdminSubject.next(this.isUserAdmin);
+        let currentUser = localStorage.getItem('user');
+        console.log(currentUser);
+
+        if (!!currentUser) {
+            this.isUserAdmin = JSON.parse(localStorage.getItem('user')).roles.indexOf('admin') >= 0;
+            this.isUserAdminSubject.next(this.isUserAdmin);
+        }
+    }
+
+    public setUserAsAdmin(username: string) {
+
     }
 }

@@ -16,7 +16,7 @@ export class ProfilePageComponent implements OnInit {
  playlists: Playlist[] = [];
 
   constructor(private playlistService: PlaylistService) {
-    this.currentUser = JSON.parse(localStorage.getItem('loggedUser'));
+    this.currentUser = JSON.parse(localStorage.getItem('user'));
   }
 
   ngOnInit() {
