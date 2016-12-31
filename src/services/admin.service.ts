@@ -7,6 +7,7 @@ import 'rxjs/add/operator/map';
 import { HttpOptionsService } from './http.options.service';
 
 const SET_ROLE_URL = 'http://localhost:3000/user-role';
+const GET_ADMINS_URL  = 'http://localhost:3000/all-admins';
 
 @Injectable()
 export class AdminService {
@@ -35,11 +36,14 @@ export class AdminService {
         let body: string = JSON.stringify(data);
         let options: RequestOptions = this.httpOptionsService.getRequestOptions();
 
-        console.log(body);
-        console.log(options);
-
         return this.http
             .post(SET_ROLE_URL, body, options)
+            .map((res: Response) => res.json());
+    }
+
+    public getAllAdmins(): Observable<any> {
+        return this.http
+            .get(GET_ADMINS_URL)
             .map((res: Response) => res.json());
     }
 }

@@ -10,24 +10,35 @@ import { NotificationsService } from '../../../node_modules/angular2-notificatio
   styleUrls: ['./admin-page.component.css']
 })
 export class AdminPageComponent implements OnInit {
-  user: string;
+      user: string;
+      admins: any[];
 
-  constructor(private adminService: AdminService, private notification: NotificationsService) { }
+      constructor(private adminService: AdminService, private notification: NotificationsService) { 
+        this.getAdmins();
+      }
 
-  ngOnInit() {
-  }
+      ngOnInit() {
+        this.admins = [];
+        this.getAdmins();
+      }
 
-  setRole() {
-    console.log(this.user);
+      setRole() {
+        this.adminService.setUserAsAdmin({'username': this.user})
+          .subscribe((response: any) => {
+              if (response.error) {
+                  this.notification.error('Login failed!', response.message);
+                } else {
+                  this.notification.success('Successfully added role to user ' + this.user, 'Welcome');
+                  // setTimeout(() => this.router.navigateByUrl('/home'), 1500);
+                }
+            }, () => this.notification.error('Login failed!', 'Please try again.'));
+      }
 
-    this.adminService.setUserAsAdmin({'username': this.user})
-      .subscribe((response: any) => {
-          if (response.error) {
-              this.notification.error('Login failed!', response.message);
-            } else {
-              this.notification.success('Successfully added role to user ' + this.user, 'Welcome');
-              // setTimeout(() => this.router.navigateByUrl('/home'), 1500);
-            }
-        }, () => this.notification.error('Login failed!', 'Please try again.'));
-  }
+      private getAdmins() {
+          this.adminService.getAllAdmins()
+              .subscribe((response: any) => {
+                this.admins = response;
+              });
+      }
+
 }

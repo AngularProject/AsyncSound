@@ -23,7 +23,14 @@ import { SortPlaylistsComponent } from './sort-playlists/sort-playlists.componen
 import { SearchPlaylistPipe } from './pipes/search.pipe';
 import { SortPlaylistsPipe } from './pipes/sort.pipe';
 
-import { HttpOptionsService, RegisterService, LoginService, UserService , PlaylistService, AdminService } from '../services';
+import {
+  HttpOptionsService,
+  RegisterService,
+  LoginService,
+  UserService ,
+  PlaylistService,
+  AdminService,
+  ProfileService } from '../services';
 
 import { AuthGuard } from './guard/auth.guard';
 import { AdminGuard } from './guard/admin.guard';
@@ -60,6 +67,7 @@ import { AdminGuard } from './guard/admin.guard';
     AuthGuard,
     PlaylistService,
     AdminService,
+    ProfileService,
     AdminGuard
   ],
   bootstrap: [AppComponent]
