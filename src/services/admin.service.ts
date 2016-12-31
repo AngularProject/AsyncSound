@@ -46,4 +46,11 @@ export class AdminService {
             .get(GET_ADMINS_URL)
             .map((res: Response) => res.json());
     }
+
+     public deleteAdmin(): void {
+         console.log("deleted");
+        // return this.http
+        //     .get(GET_ADMINS_URL)
+        //     .map((res: Response) => res.json());
+    }
 }
