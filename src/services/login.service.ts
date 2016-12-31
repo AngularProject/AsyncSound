@@ -20,18 +20,17 @@ export class LoginService {
     public isUserLogged() : boolean {
         let userData: string = localStorage.getItem('user');
 
-        if(!userData) {
+        if (!userData) {
             return false;
         }
-        
+
         return true;
     }
 
     public loginUser(data: Object): Observable<any> {
         let body: string = JSON.stringify(data);
         let options: RequestOptions = this.httpOptionService.getRequestOptions();
-        console.log(body);
-        console.log(options);
+
         return this.http
             .post(LOGIN_URL, body, options)
             .map((res: Response) => res.json());
