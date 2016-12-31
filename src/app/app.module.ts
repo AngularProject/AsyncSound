@@ -34,6 +34,7 @@ import {
 
 import { AuthGuard } from './guard/auth.guard';
 import { AdminGuard } from './guard/admin.guard';
+import { SongComponent } from './song/song.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import { AdminGuard } from './guard/admin.guard';
     SearchPlaylistComponent,
     SortPlaylistsComponent,
     SearchPlaylistPipe,
-    SortPlaylistsPipe
+    SortPlaylistsPipe,
+    SongComponent
   ],
   imports: [
     BrowserModule,

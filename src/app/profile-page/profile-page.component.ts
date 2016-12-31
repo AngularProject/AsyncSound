@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { PlaylistService } from '../../services/playlist.service';
 
 import { User } from '../models/User';
@@ -18,32 +18,28 @@ export class ProfilePageComponent implements OnInit {
  currentUser: User;
  playlists: Playlist[] = [];
 
-  constructor(private playlistService: PlaylistService, private profileService: ProfileService) {
-    this.currentUser = JSON.parse(localStorage.getItem('user'));
-    this.getUser();
-    //console.log(this.currentUser);
-  }
+   constructor(private _activatedRoute: ActivatedRoute, private profileService: ProfileService) {
+      this.currentUser = JSON.parse(localStorage.getItem('user'));
 
-  //  constructor(private _activatedRoute: ActivatedRoute, private _router:Router, private profileService: ProfileService) {
-  //     _router.routerState.queryParams
-  //     .subscribe(
-  //         data => console.log('queryParams', data['id']));
-  //       // this.getUser();
-  //     }
+      this._activatedRoute.params
+            .map(params => params['id'])
+            .subscribe((id) => {
+                this.getUser(id);
+            });
+      }
 
     ngOnInit() {
-    this.getUser();
+       this._activatedRoute.params
+          .map(params => params['id'])
+          .subscribe((id) => {
+            this.getUser(id);
+          });
     }
 
-    private getUser() {
-
-        // TODO: Take id from query param
-        // it will not be working with this id :) 
-
-        // this.profileService.getUserProfile('5866ebcdee2b1321ec233043')
-        // .subscribe((response: any) => {
-        //   // console.log(response);
-        //   this.currentUser = response;
-        // });
+    private getUser(id) {
+        this.profileService.getUserProfile(id)
+        .subscribe((response: any) => {
+          this.currentUser = response;
+        });
     }
 }
