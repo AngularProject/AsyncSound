@@ -19,7 +19,9 @@ import { PlaylistComponent } from './playlist/playlist.component';
 import { FooterComponent } from './footer/footer.component';
 import { AdminPageComponent } from './admin-page/admin-page.component';
 import { SearchPlaylistComponent } from './search-playlist/search-playlist.component';
+import { SortPlaylistsComponent } from './sort-playlists/sort-playlists.component';
 import { SearchPlaylistPipe } from './pipes/search.pipe';
+import { SortPlaylistsPipe } from './pipes/sort.pipe';
 
 import { HttpOptionsService, RegisterService, LoginService, UserService , PlaylistService, AdminService } from '../services';
 
@@ -39,7 +41,9 @@ import { AdminGuard } from './guard/admin.guard';
     FooterComponent,
     AdminPageComponent,
     SearchPlaylistComponent,
-    SearchPlaylistPipe
+    SortPlaylistsComponent,
+    SearchPlaylistPipe,
+    SortPlaylistsPipe
   ],
   imports: [
     BrowserModule,

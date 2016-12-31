@@ -1,7 +1,8 @@
 <section class="container">
     <app-search-playlist (onSearchTextChange)="onSearchTextChange($event)"></app-search-playlist>
+    <app-sort-playlists (onSortByChange)="onSortByChange($event)"></app-sort-playlists>
 </section>
-<div *ngFor="let playlist of (playlists | search: searchByText); let i = index" data-target=".nav-container" data-offset="80" data-gr-c-s-loaded="true">
+<div *ngFor="let playlist of (playlists | search: searchByText | sort: sortByText); let i = index" data-target=".nav-container" data-offset="80" data-gr-c-s-loaded="true">
     <div class="new-releases container">
         <div class="row">
             <div class="col-md-6 releases">
@@ -36,17 +37,17 @@
                                 </div>
                                 <div class="jp-controls-holder">
                                     <div class="jp-controls">
-                                        <button class="jp-previous" tabindex="0"> 
+                                        <button class="jp-previous" tabindex="0">
                                             <i class="material-icons white-text text-darken-4 jp-previous">skip_previous</i></button>
                                         <button class="jp-play" tabindex="0" (click)="audioInfo=play()">
                                             <i *ngIf="isPaused" class="material-icons white-text text-darken-4 jp-play">pause</i>
-                                            <i *ngIf="!isPaused" class="material-icons white-text text-darken-4 jp-play">play_arrow</i>                                            
+                                            <i *ngIf="!isPaused" class="material-icons white-text text-darken-4 jp-play">play_arrow</i>
                                         </button>
                                         <button class="jp-stop" tabindex="0" (click)="stop($event)">
                                             <i class="material-icons white-text text-darken-4 jp-stop">stop</i>
-                                            </button>
-                                        <button class="jp-next" tabindex="0"> 
-                                        <i class="material-icons white-text text-darken-4 jp-next">skip_next</i>                                            
+                                        </button>
+                                        <button class="jp-next" tabindex="0">
+                                            <i class="material-icons white-text text-darken-4 jp-next">skip_next</i>
                                         </button>
                                     </div>
                                     <!--<div class="jp-toggles">

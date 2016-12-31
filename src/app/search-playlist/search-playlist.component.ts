@@ -6,16 +6,16 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
   styleUrls: ['./search-playlist.component.css']
 })
 export class SearchPlaylistComponent implements OnInit {
-	@Output() onSearchTextChange: EventEmitter<string> = new EventEmitter<string>();
-
-	searchText: string;
-
-    constructor() { }
-
-    ngOnInit() {
-    }
-
-    searchTextChange() {
-    	this.onSearchTextChange.emit(this.searchText);
-    }
+     @Output() onSearchTextChange: EventEmitter<string> = new EventEmitter<string>();
+ 
+     searchText: string;
+ 
+     constructor() { }
+ 
+     ngOnInit() {
+     }
+ 
+     searchTextChange() {
+         this.onSearchTextChange.emit(this.searchText);
+     }
 }

@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
 import { PlaylistService } from '../../services/playlist.service';
+
 import { SearchPlaylistPipe } from '../pipes/search.pipe';
+import { SortPlaylistsPipe } from '../pipes/sort.pipe';
 
 import { Playlist } from '../models/playlist';
 import { Comment } from '../models/comment';
@@ -19,6 +21,7 @@ export class PlaylistComponent implements OnInit {
   currentTime: any;
 
   searchByText: string;
+  sortByProperty: string;
 
   constructor(private playlistService: PlaylistService) {
   }
@@ -61,6 +64,16 @@ export class PlaylistComponent implements OnInit {
          [ 'lud fen' ],
           [ '9'],
           [ '0' ], [ testComment ]));
+
+    this.playlistService.createPlaylist(
+      new Playlist('A trqbva da zapochva s a',
+        'Ima li znachenie',
+        Date.now(),
+        [ 'Ne, nqma' ],
+         [ 'fenka' ],
+          [ '0' ],
+          [ '0' ], [ testComment]));
+
     this.playlists = this.playlistService.getAllPlaylists();
   }
 
@@ -92,4 +105,23 @@ export class PlaylistComponent implements OnInit {
   onSearchTextChange(searchValue: string) {
     this.searchByText = searchValue;
   }
+
+    onSortTextChange(sortValue: string) {
+        let updatedValue: string;
+        switch (sortValue) {
+            case 'Title':
+                updatedValue = 'title';
+                break;
+            case 'Created by':
+                updatedValue = 'creator';
+                break;
+            case 'Created on':
+                updatedValue = 'createdOn';
+                break;
+            default:
+                updatedValue = '';
+        }
+
+        this.sortByProperty = updatedValue;
+    }
 }

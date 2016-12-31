@@ -2,25 +2,17 @@ import { Pipe, PipeTransform } from '@angular/core';
 
 import { Playlist } from '../models/Playlist';
 
-@Pipe({ name: 'sort-playlists' })
+@Pipe({ name: 'sort' })
 export class SortPlaylistsPipe implements PipeTransform {
-	transform(playlists: Playlist[], options: string[]): Playlist[] {
-		let sortBy: string = options[0] || 'title';
-		let orderBy: string = options[1] || 'ascending';
+	transform(playlists: Playlist[], sortBy: string): Playlist[] {
+		sortBy = sortBy || 'title';
 
 		if(!playlists || playlists.length === 0) {
 			return undefined;
 		}
 
-		let sortedPlaylists = playlists.sort((first: any, second: any): number => {
-			let comparison = first[sortBy].localeCompare(second[sortBy]);
-			if(orderBy === 'descending') {
-				return -comparison;
-			}
-
-			return comparison;
+		return playlists.sort((first: any, second: any): number => {
+			return first[sortBy].localeCompare(second[sortBy]);
 		});
-
-		return sortedPlaylists;
 	}
 }
