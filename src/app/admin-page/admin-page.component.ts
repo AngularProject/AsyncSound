@@ -19,13 +19,10 @@ export class AdminPageComponent implements OnInit {
 
       ngOnInit() {
         this.admins = [];
-        console.log("ngOnInit");
         this.getAdmins();
       }
 
       setRole() {
-        console.log(this.user);
-
         this.adminService.setUserAsAdmin({'username': this.user})
           .subscribe((response: any) => {
               if (response.error) {
@@ -40,7 +37,6 @@ export class AdminPageComponent implements OnInit {
       private getAdmins() {
           this.adminService.getAllAdmins()
               .subscribe((response: any) => {
-                console.log(response);
                 this.admins = response;
               });
       }

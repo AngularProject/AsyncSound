@@ -21,7 +21,14 @@ import { AdminPageComponent } from './admin-page/admin-page.component';
 import { SearchPlaylistComponent } from './search-playlist/search-playlist.component';
 import { SearchPlaylistPipe } from './pipes/search.pipe';
 
-import { HttpOptionsService, RegisterService, LoginService, UserService , PlaylistService, AdminService } from '../services';
+import {
+  HttpOptionsService,
+  RegisterService,
+  LoginService,
+  UserService ,
+  PlaylistService,
+  AdminService,
+  ProfileService } from '../services';
 
 import { AuthGuard } from './guard/auth.guard';
 import { AdminGuard } from './guard/admin.guard';
@@ -56,6 +63,7 @@ import { AdminGuard } from './guard/admin.guard';
     AuthGuard,
     PlaylistService,
     AdminService,
+    ProfileService,
     AdminGuard
   ],
   bootstrap: [AppComponent]
