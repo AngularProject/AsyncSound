@@ -9,6 +9,7 @@ import { LoginPageComponent} from './login/login.component';
 import { PlaylistComponent } from './playlist/playlist.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { AdminPageComponent } from './admin-page/admin-page.component';
+import { SongComponent } from './song/song.component';
 
 import { AuthGuard } from './guard/auth.guard';
 import { AdminGuard } from './guard/admin.guard';
@@ -23,6 +24,7 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginPageComponent },
   { path: 'playlists', component: PlaylistComponent },
+  { path: 'songs', component: SongComponent },
   { path: '**', component: PageNotFoundComponent }
 ];
 
