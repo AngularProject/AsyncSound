@@ -30,7 +30,8 @@ import {
   UserService ,
   PlaylistService,
   AdminService,
-  ProfileService } from '../services';
+  ProfileService,
+  SongService } from '../services';
 
 import { AuthGuard } from './guard/auth.guard';
 import { AdminGuard } from './guard/admin.guard';
@@ -70,7 +71,8 @@ import { SongComponent } from './song/song.component';
     PlaylistService,
     AdminService,
     ProfileService,
-    AdminGuard
+    AdminGuard,
+    SongService
   ],
   bootstrap: [AppComponent]
 })
