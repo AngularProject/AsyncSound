@@ -10,7 +10,7 @@ export class ProfileService {
     }
 
     getUserProfile(id) {
-        let url = `http://localhost:3000/profile?id=${id}`;
+        let url = `http://localhost:3000/profile/${id}`;
          return this.http
             .get(url)
             .map((res: Response) => res.json());

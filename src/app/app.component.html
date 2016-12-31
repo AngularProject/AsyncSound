@@ -1,13 +1,15 @@
 <nav>
     <div class="grey darken-4 nav-wrapper">
-        <a href="#!" class="brand-logo">Logo</a>
+        <a [routerLink]="['/home']">
+            <img src="../images/logo.png" class="brand-logo">
+        </a>
         <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
         <ul class="right hide-on-med-and-down">
             <li><a [routerLink]="['/home']">Home</a></li>
             <li><a [routerLink]="['/about']">About</a></li>
-            <li *ngIf="isUserLogged"><a [routerLink]="['/profile']">Profile</a></li>
+            <li *ngIf="isUserLogged"><a [routerLink]="['/profile', currentUser._id]">Profile</a></li>
             <li *ngIf="isUserAdmin"><a [routerLink]="['/admin']">Admin Panel</a></li>
-            <li><a [routerLink]="['/songs']">Songs</a></li>            
+            <li><a [routerLink]="['/songs']">Songs</a></li>
             <li><a [routerLink]="['/playlists']">Playlists</a></li>
             <li><a [routerLink]="['/charts']">Charts</a></li>
             <li *ngIf="!isUserLogged"><a [routerLink]="['register']">Register</a></li>

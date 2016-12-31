@@ -24,11 +24,11 @@
         <ul class="collection">
             <li *ngFor="let admin of admins" class="collection-item avatar">
                 <img src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTBDPoVMQehyHCjxg17gGgj3MyU__00RZi1wM7IH1jV8ehgl8sz" alt="" class="circle">
-                <span class="title">Username: <a [routerLink]="['../profile/']" [queryParams]="{id: admin._id}">{{admin.username}}</a></span>
+                <span class="title">Username: <a [routerLink]="['../profile', admin._id]">{{admin.username}}</a></span>
                 <p>
                     {{admin.firstname}} {{admin.lastname}}
                 </p>
-                <a class="secondary-content"><i class="material-icons red-text text-darken-4">delete</i>Remove</a>
+                <a class="secondary-content" (click)="deleteAdmin"><i class="material-icons red-text text-darken-4">delete</i>Remove</a>
             </li>
         </ul>
     </div>
