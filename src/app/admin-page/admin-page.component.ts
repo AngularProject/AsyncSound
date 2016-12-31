@@ -42,11 +42,11 @@ export class AdminPageComponent implements OnInit {
       }
 
       deleteAdmin() {
-          this.adminService.deleteAdmin()
-            .subscribe((response: any) => {
-                  console.log('2');
+          this.adminService.deleteAdmin();
+            // .subscribe((response: any) => {
+            //       console.log('2');
                   
-              });
+            //   });
       }
 
 }
