@@ -1,8 +1,8 @@
 <div class="sort row col-xs-6">
+    <a class="btn dropdown-button grey" data-activates="dropdown">Sort playlists by...</a>
     <ul id="dropdown" class="dropdown-content">
-        <li (click)="sortByChange('Title')"><a>Title</a></li>
-        <li (click)="sortByChange('Creator')"><a>Created by</a></li>
-        <li (click)="sortByChange('Created on')"><a>Created on</a></li>
+        <li><a (click)="sortByChange('Title')">Title</a></li>
+        <li><a (click)="sortByChange('Creator')">Created by</a></li>
+        <li><a (click)="sortByChange('Created on')">Created on</a></li>
     </ul>
-    <a class="btn dropdown-button grey" data-activates="dropdown">Sort playlists by...<i class="mdi-navigation-arrow-drop-down right"></i></a>
 </div>

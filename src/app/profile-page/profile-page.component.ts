@@ -21,7 +21,7 @@ export class ProfilePageComponent implements OnInit {
   constructor(private playlistService: PlaylistService, private profileService: ProfileService) {
     this.currentUser = JSON.parse(localStorage.getItem('user'));
     this.getUser();
-    // console.log(this.currentUser);
+    //console.log(this.currentUser);
   }
 
   //  constructor(private _activatedRoute: ActivatedRoute, private _router:Router, private profileService: ProfileService) {
