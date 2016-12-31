@@ -22,6 +22,7 @@ import { SearchPlaylistComponent } from './search-playlist/search-playlist.compo
 import { SortPlaylistsComponent } from './sort-playlists/sort-playlists.component';
 import { SearchPlaylistPipe } from './pipes/search.pipe';
 import { SortPlaylistsPipe } from './pipes/sort.pipe';
+import { SongComponent } from './song/song.component';
 
 import {
   HttpOptionsService,
@@ -34,7 +35,6 @@ import {
 
 import { AuthGuard } from './guard/auth.guard';
 import { AdminGuard } from './guard/admin.guard';
-import { SongComponent } from './song/song.component';
 
 @NgModule({
   declarations: [

@@ -1,6 +1,9 @@
 .brand-logo {
-	height: 60px;
-	width: 200px;
+	height: 42px;
+	width: 80px;
+
 	top: 10px;
+	left: 40px;
+	
 	opacity: 0.5;
 }
