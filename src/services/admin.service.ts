@@ -34,7 +34,7 @@ export class AdminService {
 
     public setUserAsAdmin(data: Object): Observable<any> {
         let body: string = JSON.stringify(data);
-        let options: RequestOptions = this.httpOptionsService.getRequestOptions();
+        let options: RequestOptions = this.httpOptionsService.getRequestOptions(true);
 
         return this.http
             .post(SET_ROLE_URL, body, options)

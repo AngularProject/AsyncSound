@@ -14,7 +14,7 @@ export class RegisterService {
 
     public registerUser(data: Object): Observable<any> {
         let body: string = JSON.stringify(data);
-        let options: RequestOptions = this.httpOptionsService.getRequestOptions();
+        let options: RequestOptions = this.httpOptionsService.getRequestOptions(true);
 
         return this.http
             .post(REGISTER_URL, body, options)
