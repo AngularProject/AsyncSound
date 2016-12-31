@@ -29,7 +29,7 @@ export class LoginService {
 
     public loginUser(data: Object): Observable<any> {
         let body: string = JSON.stringify(data);
-        let options: RequestOptions = this.httpOptionService.getRequestOptions();
+        let options: RequestOptions = this.httpOptionService.getRequestOptions(true);
 
         return this.http
             .post(LOGIN_URL, body, options)

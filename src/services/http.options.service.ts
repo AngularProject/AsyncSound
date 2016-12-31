@@ -3,9 +3,12 @@ import { Headers, RequestOptions } from '@angular/http';
 
 @Injectable()
 export class HttpOptionsService {
-    public getRequestOptions(): RequestOptions {
+    public getRequestOptions(sendData: boolean): RequestOptions {
         let headerFields = {};
-        headerFields['Content-Type'] = 'application/json';
+
+        if(sendData) {
+            headerFields['Content-Type'] = 'application/json';
+        };
         
         let headers: Headers = new Headers(headerFields);
         let options: RequestOptions = new RequestOptions({ headers: headers });
