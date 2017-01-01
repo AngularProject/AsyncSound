@@ -3,7 +3,6 @@ import { Component, OnInit } from '@angular/core';
 import { AdminService} from '../../services/admin.service';
 import { NotificationsService } from '../../../node_modules/angular2-notifications';
 
-
 @Component({
   selector: 'app-admin-page',
   templateUrl: './admin-page.component.html',
@@ -11,14 +10,12 @@ import { NotificationsService } from '../../../node_modules/angular2-notificatio
 })
 export class AdminPageComponent implements OnInit {
       user: string;
-      admins: any[];
+      admins: any[] = [];
 
       constructor(private adminService: AdminService, private notification: NotificationsService) {
-        this.getAdmins();
       }
 
       ngOnInit() {
-        this.admins = [];
         this.getAdmins();
       }
 
@@ -29,7 +26,7 @@ export class AdminPageComponent implements OnInit {
                   this.notification.error('Login failed!', response.message);
                 } else {
                   this.notification.success('Successfully added role to user ' + this.user, 'Welcome');
-                  // setTimeout(() => this.router.navigateByUrl('/home'), 1500);
+                  this.getAdmins();
                 }
             }, () => this.notification.error('Login failed!', 'Please try again.'));
       }
@@ -41,4 +38,7 @@ export class AdminPageComponent implements OnInit {
               });
       }
 
+      private deleted(ev) {
+        this.getAdmins();
+      }
 }

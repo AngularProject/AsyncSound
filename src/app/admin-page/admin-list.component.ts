@@ -1,6 +1,9 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges,    Output,
+   EventEmitter  } from '@angular/core';
 
 import { AdminService} from '../../services/admin.service';
+
+import { NotificationsService } from '../../../node_modules/angular2-notifications';
 
 @Component({
   selector: '[app-admin-list]',
@@ -10,13 +13,21 @@ import { AdminService} from '../../services/admin.service';
 export class AdminListComponent {
     @Input() admin: any;
 
-    constructor(private adminService: AdminService) {
+    @Output() delete: EventEmitter<any> = new EventEmitter<any>();
+
+
+    constructor(private adminService: AdminService, private notificationService: NotificationsService) {
     }
 
     deleteAdmin() {
          this.adminService.deleteAdmin(this.admin)
             .subscribe((response: any) => {
-                  console.log('2');
-              });
+                    if (response.error) {
+                        this.notificationService.error('Cannot remove admin', response.message);
+                    } else {
+                        this.delete.emit('Emitted ' + this.admin.username);
+                        this.notificationService.success(`Admin removed ${this.admin.username} successfully`, ':)');
+                        };
+                    }, () => this.notificationService.error('Loading failed', 'Error'));
     }
 }
