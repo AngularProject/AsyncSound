@@ -22,6 +22,7 @@ import { AdminPageComponent } from './admin-page/admin-page.component';
 import { SearchPlaylistComponent } from './search-playlist/search-playlist.component';
 import { SortPlaylistsComponent } from './sort-playlists/sort-playlists.component';
 import { AdminListComponent } from './admin-page/admin-list.component';
+import { PlaylistDetailedComponent } from './playlist/playlist-detailed.component';
 
 import { SearchPlaylistPipe } from './pipes/search.pipe';
 import { SortPlaylistsPipe } from './pipes/sort.pipe';
@@ -55,7 +56,8 @@ import { AdminGuard } from './guard/admin.guard';
     SortPlaylistsComponent,
     SearchPlaylistPipe,
     SortPlaylistsPipe,
-    SongComponent
+    SongComponent,
+    PlaylistDetailedComponent
   ],
   imports: [
     BrowserModule,
