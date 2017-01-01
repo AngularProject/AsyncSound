@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 
 import { Song } from '../models/Song';
 import { SongService } from '../../services';
@@ -10,7 +10,7 @@ import { NotificationsService } from '../../../node_modules/angular2-notificatio
   styleUrls: ['./song.component.css']
 })
 export class SongComponent implements OnInit {
-  // TODO!
+  @Output() song;
   songs: Song[];
   constructor(private songService: SongService, private notification: NotificationsService) { }
 
