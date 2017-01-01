@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
+import { Song } from '../models/Song';
 import { SongService } from '../../services';
 import { NotificationsService } from '../../../node_modules/angular2-notifications';
 
@@ -10,7 +11,7 @@ import { NotificationsService } from '../../../node_modules/angular2-notificatio
 })
 export class SongComponent implements OnInit {
   // TODO!
-  songs: Array<any>;
+  songs: Song[];
   constructor(private songService: SongService, private notification: NotificationsService) { }
 
   ngOnInit() {
@@ -24,9 +25,10 @@ export class SongComponent implements OnInit {
             if(response.error) {
               this.notification.error('Loading songs failed', response.message);
             } else {
-              this.songs = response as Array<any>;
+              this.notification.success('Songs loaded', ':)');
+              this.songs = response as Song[];
             };
-        })
+        }, ()=> this.notification.error('Loading songs failed', 'Error'))
   }
 
 }

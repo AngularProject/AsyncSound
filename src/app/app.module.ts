@@ -8,6 +8,8 @@ import { SimpleNotificationsModule } from '../../node_modules/angular2-notificat
 // import { Ng2AutoCompleteModule } from '../../node_modules/ng2-auto-complete/dist/ng2-auto-complete.umd';
 import { AppRoutingModule } from './app-routing.module';
 
+import { AdminModule } from './admin-page/admin.module';
+
 import { AppComponent } from './app.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { AboutPageComponent } from './about-page/about-page.component';
@@ -20,6 +22,8 @@ import { FooterComponent } from './footer/footer.component';
 import { AdminPageComponent } from './admin-page/admin-page.component';
 import { SearchPlaylistComponent } from './search-playlist/search-playlist.component';
 import { SortPlaylistsComponent } from './sort-playlists/sort-playlists.component';
+import { AdminListComponent } from './admin-page/admin-list.component';
+
 import { SearchPlaylistPipe } from './pipes/search.pipe';
 import { SortPlaylistsPipe } from './pipes/sort.pipe';
 import { SongComponent } from './song/song.component';
@@ -48,7 +52,6 @@ import { AdminGuard } from './guard/admin.guard';
     PageNotFoundComponent,
     PlaylistComponent,
     FooterComponent,
-    AdminPageComponent,
     SearchPlaylistComponent,
     SortPlaylistsComponent,
     SearchPlaylistPipe,
@@ -60,7 +63,8 @@ import { AdminGuard } from './guard/admin.guard';
     FormsModule,
     HttpModule,
     SimpleNotificationsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    AdminModule
   ],
   providers: [
     HttpOptionsService,

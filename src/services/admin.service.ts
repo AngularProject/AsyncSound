@@ -8,6 +8,7 @@ import { HttpOptionsService } from './http.options.service';
 
 const SET_ROLE_URL = 'http://localhost:3000/user-role';
 const GET_ADMINS_URL  = 'http://localhost:3000/all-admins';
+const REMOVE_ADMIN_URL = 'http://localhost:3000/remove-role';
 
 @Injectable()
 export class AdminService {
@@ -47,10 +48,12 @@ export class AdminService {
             .map((res: Response) => res.json());
     }
 
-     public deleteAdmin(): void {
-         console.log("deleted");
-        // return this.http
-        //     .get(GET_ADMINS_URL)
-        //     .map((res: Response) => res.json());
+     public deleteAdmin(data): Observable<any> {
+         let body: string = JSON.stringify(data);
+        let options: RequestOptions = this.httpOptionsService.getRequestOptions(true);
+
+        return this.http
+            .post(REMOVE_ADMIN_URL, body, options)
+            .map((res: Response) => res.json());
     }
 }
