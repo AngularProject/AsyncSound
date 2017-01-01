@@ -3,7 +3,16 @@
 	width: 80px;
 
 	top: 10px;
-	left: 40px;
+	left: 50px;
 	
 	opacity: 0.5;
+}
+
+.dropdown-button, .btn {
+	background: none;
+	box-shadow: none;
+}
+
+.dropdown-content {
+	background-color: #171616;
 }

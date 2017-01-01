@@ -1,7 +1,6 @@
-<section class="container">
-    <app-search-playlist (onSearchTextChange)="onSearchTextChange($event)"></app-search-playlist>
-    <app-sort-playlists (onSortByChange)="onSortByChange($event)"></app-sort-playlists>
-</section>
+<app-search-playlist (onSearchTextChange)="onSearchTextChange($event)"></app-search-playlist>
+<app-sort-playlists (onSortByChange)="onSortByChange($event)"></app-sort-playlists>
+
 <div *ngFor="let playlist of (playlists | search: searchByText | sort: sortByText); let i = index" data-target=".nav-container" data-offset="80" data-gr-c-s-loaded="true">
     <div class="new-releases container">
         <div class="row">

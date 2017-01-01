@@ -5052,7 +5052,7 @@ body {
 }
 
 .jplayer-home .jp-gui .jp-interface .jp-progress .jp-seek-bar {
-    background-color: rgba(96, 24, 213, .4);
+    background-color: #00897b;
     width: 0;
     height: 100%;
     cursor: pointer
