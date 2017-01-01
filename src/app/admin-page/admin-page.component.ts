@@ -13,7 +13,7 @@ export class AdminPageComponent implements OnInit {
       user: string;
       admins: any[];
 
-      constructor(private adminService: AdminService, private notification: NotificationsService) { 
+      constructor(private adminService: AdminService, private notification: NotificationsService) {
         this.getAdmins();
       }
 
@@ -39,14 +39,6 @@ export class AdminPageComponent implements OnInit {
               .subscribe((response: any) => {
                 this.admins = response;
               });
-      }
-
-      deleteAdmin() {
-          this.adminService.deleteAdmin();
-            // .subscribe((response: any) => {
-            //       console.log('2');
-                  
-            //   });
       }
 
 }
