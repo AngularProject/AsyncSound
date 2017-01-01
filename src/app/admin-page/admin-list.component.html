@@ -1,8 +1,6 @@
-<img src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTBDPoVMQehyHCjxg17gGgj3MyU__00RZi1wM7IH1jV8ehgl8sz" alt="" class="circle">
-<span class="title">Username: <a [routerLink]="['../profile', admin._id]">{{admin.username}}</a></span>
-<p>
-    {{admin.firstname}} {{admin.lastname}}
-</p>
+<img [src]="adminAvatarUrl" alt="Admin's Avatar" class="responsive-img circle">
+<span class="title">Username: 
+	<a [routerLink]="['../profile', admin._id]">{{admin.username}}</a></span>
+<p>{{admin.firstname}} {{admin.lastname}}</p>
 <a class="secondary-content waves-effect waves-light btn red darken-4" (click)="deleteAdmin()">
-    <i class="material-icons right">delete</i>Remove
-</a>
+   	<i class="material-icons right">delete</i>Remove</a>
