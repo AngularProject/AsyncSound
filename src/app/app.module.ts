@@ -39,6 +39,7 @@ import {
 
 import { AuthGuard } from './guard/auth.guard';
 import { AdminGuard } from './guard/admin.guard';
+import { PlaylistDropdownComponent } from './playlist-dropdown/playlist-dropdown.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import { AdminGuard } from './guard/admin.guard';
     SortPlaylistsComponent,
     SearchPlaylistPipe,
     SortPlaylistsPipe,
-    SongComponent
+    SongComponent,
+    PlaylistDropdownComponent
   ],
   imports: [
     BrowserModule,
