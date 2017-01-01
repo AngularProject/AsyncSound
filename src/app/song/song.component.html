@@ -21,9 +21,7 @@
                 <source src="{{song.oggUrl}" type="audio/ogg">
                 <source src="{{song.mp3Url}}" type="audio/mpeg"> Your browser does not support the audio element.
               </audio>
-              <div class="col s2">
-              <playlist-dropdown></playlist-dropdown>
-              </div>
+              <playlist-dropdown class="col s2" [song]="song"></playlist-dropdown>
             </div>
           </div>
         </div>
