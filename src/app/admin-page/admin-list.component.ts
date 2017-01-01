@@ -5,6 +5,8 @@ import { AdminService} from '../../services/admin.service';
 
 import { NotificationsService } from '../../../node_modules/angular2-notifications';
 
+const DEFAULT_AVATAR_URL = 'http://localhost:3000/static/images/default-avatar.png';
+
 @Component({
   selector: '[app-admin-list]',
   templateUrl: './admin-list.component.html'
@@ -15,8 +17,10 @@ export class AdminListComponent {
 
     @Output() delete: EventEmitter<any> = new EventEmitter<any>();
 
+ 	adminAvatarUrl: string;
 
     constructor(private adminService: AdminService, private notificationService: NotificationsService) {
+    	this.adminAvatarUrl = DEFAULT_AVATAR_URL;
     }
 
     deleteAdmin() {
