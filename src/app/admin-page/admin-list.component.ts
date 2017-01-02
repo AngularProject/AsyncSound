@@ -14,7 +14,6 @@ const DEFAULT_AVATAR_URL = 'http://localhost:3000/static/images/default-avatar.p
 
 export class AdminListComponent {
     @Input() admin: any;
-
     @Output() delete: EventEmitter<any> = new EventEmitter<any>();
 
  	adminAvatarUrl: string;
