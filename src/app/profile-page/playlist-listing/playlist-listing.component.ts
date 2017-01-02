@@ -23,7 +23,7 @@ export class PlaylistListingComponent implements OnInit {
 
       private getUserPlaylist() {
       let us = JSON.parse(localStorage.getItem('user'));
-      this.playlistService.getAllPlaylistsOfUser(us._id)
+      this.playlistService.getUserPlaylists(us.username)
          .subscribe((response: any) => {
            this.playlists = response;
            console.log(this.playlists);

@@ -21,7 +21,7 @@ const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home',  component: HomePageComponent },
   { path: 'about', component: AboutPageComponent },
-  { path: 'profile/:id', component: ProfilePageComponent, canActivate: [AuthGuard],
+  { path: 'profile/:username', component: ProfilePageComponent, canActivate: [AuthGuard],
     children: [
       { path: 'create-playlist', component: PlaylistCreationComponent },
       { path: 'user-playlists', component: PlaylistListingComponent },

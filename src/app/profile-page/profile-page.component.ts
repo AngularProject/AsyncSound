@@ -38,7 +38,7 @@ export class ProfilePageComponent implements OnInit {
        this.changedColor = 'rgba(243, 243, 243, 0.22)';
 
        this._activatedRoute.params
-          .map(params => params['id'])
+          .map(params => params['username'])
           .subscribe((id) => {
             this.getUser(id);
           });

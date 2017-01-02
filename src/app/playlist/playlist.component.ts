@@ -28,52 +28,7 @@ export class PlaylistComponent implements OnInit {
 
   ngOnInit() {
     let testComment = new Comment('mnogo qk playlist', 'lud fen', Date.now(), ['1'], ['0']);
-
-//     this.playlistService.createPlaylist(
-//       new Playlist('BG rap',
-//        'FenNaQvkata',
-//        Date.now(),
-//         [ 'Pojarogasitel', 'Podobren' ],
-//         [ 'lud fen' ], [ '5'], [ '0' ],
-//         [ testComment ]));
-
-//     this.playlistService.createPlaylist(
-//       new Playlist('BG rap some more',
-//        'Dimaka RULES',
-//         Date.now(),
-//          [ '420', 'Body' ],
-//           [ 'lud fen' ],
-//            [ '7'],
-//             [ '0' ],
-//              [ testComment ]));
-
-//  this.playlistService.createPlaylist(
-//       new Playlist('BG rap za posledno',
-//        'GarjokaSelski',
-//         Date.now(),
-//          [ 'Ne pomnq', 'kak se kazvashe' ],
-//           [ 'lud fen' ],
-//            [ '2'], [ '0' ],
-//             [ testComment ]));
-
-//     this.playlistService.createPlaylist(
-//       new Playlist('BG rap samo znam',
-//        'Alex P',
-//         Date.now(),
-//         [ 'Nalei', 'Belucci' ],
-//          [ 'lud fen' ],
-//           [ '9'],
-//           [ '0' ], [ testComment ]));
-
-//     this.playlistService.createPlaylist(
-//       new Playlist('A trqbva da zapochva s a',
-//         'Ima li znachenie',
-//         Date.now(),
-//         [ 'Ne, nqma' ],
-//          [ 'fenka' ],
-//           [ '0' ],
-//           [ '0' ], [ testComment]));
-
+    
         this.playlistService.getAllPlaylists()
         .subscribe((response: any) => {
             this.playlists = response;
