@@ -5,10 +5,15 @@
             <span class="card-title">{{playlist.title}}</span>
         </div>
         <div class="card-content">
-            <div class="row">
+            <div *ngIf="!isAdded" class="row">
                 <a class="btn-floating  waves-effect waves-light"><i class="tiny material-icons">add</i></a>
                 <a class="btn-floating waves-effect waves-light"><i class="material-icons tiny">thumb_up</i></a>
                 <a class="btn-floating waves-effect waves-light red lighten-2"><i class="material-icons small">thumb_down</i></a>
+            </div>
+            <div *ngIf="isAdded" class="row">
+                <a class="btn-floating  waves-effect waves-light"><i class="tiny material-icons">remove</i></a>
+                <!--<a class="btn-floating waves-effect waves-light"><i class="material-icons tiny">thumb_up</i></a>
+                <a class="btn-floating waves-effect waves-light red lighten-2"><i class="material-icons small">thumb_down</i></a>-->
             </div>
             <p>By:
                 <a [routerLink]="['../profile', playlist.creator]"> {{playlist.creator}}</a>
