@@ -21,7 +21,7 @@ export class ProfilePageComponent implements OnInit {
  currentUser: User;
  userAvatarUrl: string;
  playlists: Playlist[] = [];
-	 isTrue = true;
+  isTrue = true;
 
    constructor(private _activatedRoute: ActivatedRoute,
     private profileService: ProfileService,
@@ -30,12 +30,13 @@ export class ProfilePageComponent implements OnInit {
 
       // this.userAvatarUrl = this.profileService.getUserAvatar(this.currentUser.username);
       this.userAvatarUrl = DEFAULT_AVATAR_URL;
+            this.getUserPlaylist();
 
-      this._activatedRoute.params
-            .map(params => params['id'])
-            .subscribe((id) => {
-                this.getUser(id);
-            });
+      // this._activatedRoute.params
+      //       .map(params => params['id'])
+      //       .subscribe((id) => {
+      //           this.getUser(id);
+      //       });
       }
 
     ngOnInit() {
@@ -44,6 +45,7 @@ export class ProfilePageComponent implements OnInit {
           .subscribe((id) => {
             this.getUser(id);
           });
+
     }
 
     private getUser(id) {
@@ -54,13 +56,16 @@ export class ProfilePageComponent implements OnInit {
     }
 
     getUserPlaylist() {
-      if (this.isTrue) {
-        this.isTrue = false;
+      // if (this.isTrue) {
+      console.log("here?");
+      //   this.isTrue = false;
       let us = JSON.parse(localStorage.getItem('user'));
       this.playlistService.getAllPlaylistsOfUser(us._id)
          .subscribe((response: any) => {
+           
            this.playlists = response;
+           console.log(this.playlists);
         });
-        }
+        // }
     }
 }
