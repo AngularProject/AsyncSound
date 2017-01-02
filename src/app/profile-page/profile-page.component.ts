@@ -18,7 +18,7 @@ const DEFAULT_AVATAR_URL = 'http://localhost:3000/static/images/default-avatar.p
 })
 
 export class ProfilePageComponent implements OnInit {
-   private changedColor: string;
+   changedColor: string;
 
    currentUser: User;
    userAvatarUrl: string;
@@ -32,20 +32,12 @@ export class ProfilePageComponent implements OnInit {
 
       // this.userAvatarUrl = this.profileService.getUserAvatar(this.currentUser.username);
       this.userAvatarUrl = DEFAULT_AVATAR_URL;
-            this.getUserPlaylist();
-
-      // this._activatedRoute.params
-      //       .map(params => params['id'])
-      //       .subscribe((id) => {
-      //           this.getUser(id);
-      //       });
       }
 
     ngOnInit() {
        this.changedColor = 'rgba(243, 243, 243, 0.22)';
-
        this._activatedRoute.params
-          .map(params => params['id'])
+          .map(params => params['username'])
           .subscribe((id) => {
             this.getUser(id);
           });
@@ -56,19 +48,5 @@ export class ProfilePageComponent implements OnInit {
         .subscribe((response: any) => {
           this.currentUser = response;
         });
-    }
-
-    getUserPlaylist() {
-      // if (this.isTrue) {
-      console.log("here?");
-      //   this.isTrue = false;
-      let us = JSON.parse(localStorage.getItem('user'));
-      this.playlistService.getAllPlaylistsOfUser(us._id)
-         .subscribe((response: any) => {
-           
-           this.playlists = response;
-           console.log(this.playlists);
-        });
-        // }
     }
 }

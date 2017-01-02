@@ -18,6 +18,11 @@ export class SongComponent implements OnInit {
   pageInfo: any = {};
   pagedItems: any[];
   searchingSong: string;
+
+  newWidth: string = '485px';
+  newHeigth: string = '80px';
+  newPadding: string = '-10px';
+  changedSize: string[];
   constructor(private songService: SongService,
               private notification: NotificationsService,
               private pageService: PageService,
@@ -35,7 +40,9 @@ export class SongComponent implements OnInit {
               this.getAllSongs();
             }
         });
-  }
+
+    this.changedSize = [ this.newWidth, this.newHeigth, this.newPadding ];
+ }
 
   public getSongByTitle(title) {
      this.songService

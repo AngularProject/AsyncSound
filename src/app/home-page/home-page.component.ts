@@ -9,11 +9,16 @@ import { User } from '../models/User';
 export class HomePageComponent implements OnInit {
   currentUser: User;
 
+  backgroundBlur: string = 'blur(1px)';
+  backgroundOpacity: number = 0.98;
+  backgroundFilter: any[];
+
   constructor() { 
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
   }
 
   ngOnInit() {
+    this.backgroundFilter = [ this.backgroundBlur, this.backgroundOpacity ];
   }
 
 }

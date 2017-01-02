@@ -1,7 +1,7 @@
 <section class="container">
   <div class="search row">
     <div class="col s11">
-      <input class="col-xs-6 s11" type="text" placeholder="Shakira" [(ngModel)]="searchingSong" (keyup.enter)="search()">
+      <input class="col-xs-6 s11" type="text" placeholder="Shakira, Ty Dolla $ign" [(ngModel)]="searchingSong" (keyup.enter)="search()">
     </div>
     <div class="col s1"><a class="btn-floating waves-effect waves-light" (click)="search()"><i class="material-icons">search</i></a></div>
   </div>
@@ -11,7 +11,7 @@
     <div *ngFor="let song of pagedItems" class="col s6">
       <p>{{song.title}}</p>
       <div class="song">
-        <div class="card horizontal">
+        <div class="card horizontal" [zoom-item]="changedSize">
           <div class="card-image">
             <img class="responsive-img" src="https://s29.postimg.org/4m3x25kuv/default.png">
           </div>

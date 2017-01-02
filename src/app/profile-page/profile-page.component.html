@@ -4,10 +4,14 @@
             <div class="container main center" [highlighter]="changedColor">
                 <br>
                 <br>
-                <img class="circle responsive-img" [src]="userAvatarUrl" alt="profile picture">
-                <h1 class="header center teal-text text-darken-4">{{currentUser.username}}</h1>
-                <p>Full Name: {{currentUser.firstname}} {{currentUser.lastname}}</p>
-                <h5 class="header col s12 light">welcome back!</h5>
+                <div>
+                    <img class="circle responsive-img" [src]="userAvatarUrl" alt="profile picture">
+                </div>
+                <div>
+                    <h1 class="header center teal-text text-darken-4">{{currentUser.username}}</h1>
+                    <p>Full Name: {{currentUser.firstname}} {{currentUser.lastname}}</p>
+                    <h5 class="header col s12 light">welcome back!</h5>
+                </div>
                 <br>
                 <br>
             </div>
@@ -16,22 +20,20 @@
     <nav class="nav-extended teal darken-4">
         <div class="nav-wrapper">
             <ul class="tabs tabs-transparent">
-                <li class="tab"><a href="#test1">Create playlist</a></li>
-                <li class="tab"><a href="#test2">My playlists</a></li>
+                <li class="tab"><a routerLink="create-playlist">Create playlist</a></li>
+                <li class="tab"><a routerLink="user-playlists" class="active">My playlists</a></li>
                 <!--<li class="tab disabled"><a href="#test3">Disabled Tab</a></li>-->
-                <li class="tab"><a href="#test4">Edit information</a></li>
+                <li class="tab"><a routerLink="edit-information">Edit information</a></li>
             </ul>
         </div>
     </nav>
-    <div id="test1" class="col s12">
+    <router-outlet></router-outlet>
+    <!--<div id="test1" class="col s12">
         <app-create-playlist></app-create-playlist>
     </div>
     <div id="test2" class="col s12">
-        <div class="container main s12 center">
-            <div app-detail-playlist *ngFor="let playlist of playlists; let i = index" [playlist]="playlist" class="row" data-offset="80">
-            </div>
-        </div>
+        <app-list-playlist></app-list-playlist>
     </div>
     <!--<div id="test3" class="col s12">Test 3</div>-->
-    <div id="test4" class="col s12">Test 4</div>
+    <!--<div id="test4" class="col s12">Test 4</div>-->
 </div>
