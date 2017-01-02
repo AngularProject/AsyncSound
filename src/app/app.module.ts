@@ -40,6 +40,7 @@ import {
 
 import { AuthGuard } from './guard/auth.guard';
 import { AdminGuard } from './guard/admin.guard';
+import { PlaylistDropdownComponent } from './playlist-dropdown/playlist-dropdown.component';
 
 import { HighlighterDirective } from './directives/highlighter.directive';
 
@@ -59,8 +60,9 @@ import { HighlighterDirective } from './directives/highlighter.directive';
     SearchPlaylistPipe,
     SortPlaylistsPipe,
     SongComponent,
-    PlaylistDetailedComponent,
-    HighlighterDirective
+    HighlighterDirective,
+    PlaylistDropdownComponent,
+    PlaylistDetailedComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,9 @@
+.collection {
+    position: absolute;
+    overflow-y: auto;
+    z-index: 9999;
+}
+
+.collection-item:hover {
+    background-color:lightgray;
+}
