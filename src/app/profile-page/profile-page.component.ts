@@ -18,10 +18,12 @@ const DEFAULT_AVATAR_URL = 'http://localhost:3000/static/images/default-avatar.p
 })
 
 export class ProfilePageComponent implements OnInit {
- currentUser: User;
- userAvatarUrl: string;
- playlists: Playlist[] = [];
-  isTrue = true;
+   private changedColor: string;
+
+   currentUser: User;
+   userAvatarUrl: string;
+   playlists: Playlist[] = [];
+   isTrue = true;
 
    constructor(private _activatedRoute: ActivatedRoute,
     private profileService: ProfileService,
@@ -40,12 +42,13 @@ export class ProfilePageComponent implements OnInit {
       }
 
     ngOnInit() {
+       this.changedColor = 'rgba(243, 243, 243, 0.22)';
+
        this._activatedRoute.params
           .map(params => params['id'])
           .subscribe((id) => {
             this.getUser(id);
           });
-
     }
 
     private getUser(id) {
