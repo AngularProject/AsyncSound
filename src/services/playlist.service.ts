@@ -10,6 +10,7 @@ import { Playlist } from '../app/models/Playlist';
 import { Comment } from '../app/models/Comment';
 
 const PLAYLIST_URL = 'http://localhost:3000/api/playlists/';
+const GET_PLAYLISTS = 'http://localhost:3000/playlists';
 const GET_USER_PLAYLIST_URL = 'http://localhost:3000/user-playlists/';
 const CREATE_PLAYLIST_URL = 'http://localhost:3000/playlist/add';
 
@@ -39,8 +40,10 @@ export class PlaylistService {
             .post(PLAYLIST_URL, body, options)
             .map((res: Response) => res.json());
     }
-	getAllPlaylists() {
-		return this.playlists;
+	getAllPlaylists(): Observable<any> {
+		 return this.http
+			.get(GET_PLAYLISTS)
+			.map((res: Response) => res.json());
 	}
 
 	getPlaylistByTitle(title: string) {
@@ -56,10 +59,9 @@ export class PlaylistService {
 		.map((res: Response) => res.json());
      }
 
-     getAllPlaylistsOfUser(userId: string) {
-
+     getAllPlaylistsOfUser(userId: string): Observable<any> {
 		 let body: string = JSON.stringify(userId);
-		 console.log(userId);
+
 		 return this.http
 			.get(GET_USER_PLAYLIST_URL + userId)
 			.map((res: Response) => res.json());
