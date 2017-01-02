@@ -9,6 +9,7 @@ import { HttpOptionsService } from './http.options.service';
 
 const LOGIN_URL: string = 'http://localhost:3000/auth/login';
 const LOGOUT_URL: string = 'http://localhost:3000/auth/logout';
+const EDIT_URL: string = 'http://localhost:3000/auth/edit';
 
 @Injectable()
 export class LoginService {
@@ -33,6 +34,15 @@ export class LoginService {
 
         return this.http
             .post(LOGIN_URL, body, options)
+            .map((res: Response) => res.json());
+    }
+
+    public editUserProfile(data: Object): Observable<any> {
+        let body: string = JSON.stringify(data);
+        let options: RequestOptions = this.httpOptionService.getRequestOptions(true);
+
+        return this.http
+            .post(EDIT_URL, body, options)
             .map((res: Response) => res.json());
     }
 
