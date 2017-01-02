@@ -33,19 +33,18 @@ export class PlaylistDropdownComponent implements OnInit {
     const user = JSON.parse(localStorage.getItem('user'));
     const username = user.username;
     const hasPlaylist = localStorage.getItem('playlist');
-
-    if(!hasPlaylist) {      
+    if(!hasPlaylist) {
       this.playlistService
           .getUserPlaylists(username)
           .subscribe(response => {
-            
+            console.log(response);
             if(response.error) {
                 this.notification.error('Loading playlist failed', response.message);
               } else {
                 this.playlists = response as Array<any>;
                 localStorage.setItem('playlist', JSON.stringify(this.playlists));
               };
-          }, ()=> this.notification.error('Loading playlist failed', 'Error'))
+          }, () => this.notification.error('Loading playlist failed', 'Error'))
     } else {
         const playlists = JSON.parse(hasPlaylist);
         this.playlists = playlists;

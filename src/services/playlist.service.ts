@@ -52,6 +52,7 @@ export class PlaylistService {
 
 	createPlaylist(playlist: Playlist) {
 		let body: string = JSON.stringify(playlist);
+		console.log(body);
 		let options: RequestOptions = this.httpOptionsService.getRequestOptions(true);
 
 		return this.http
