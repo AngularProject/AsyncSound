@@ -44,6 +44,7 @@ import { AdminGuard } from './guard/admin.guard';
 import { PlaylistDropdownComponent } from './playlist-dropdown/playlist-dropdown.component';
 
 import { HighlighterDirective } from './directives/highlighter.directive';
+import { ZoomItemDirective } from './directives/zoom-item.directive';
 
 @NgModule({
   declarations: [
@@ -64,7 +65,8 @@ import { HighlighterDirective } from './directives/highlighter.directive';
     HighlighterDirective,
     PlaylistDropdownComponent,
     PlaylistDetailedComponent,
-    PlaylistCreationComponent
+    PlaylistCreationComponent,
+    ZoomItemDirective
   ],
   imports: [
     BrowserModule,

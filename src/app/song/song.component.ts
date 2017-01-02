@@ -11,11 +11,19 @@ import { NotificationsService } from '../../../node_modules/angular2-notificatio
 })
 export class SongComponent implements OnInit {
   @Output() song;
+
   songs: Song[];
+
+  newWidth: string = '485px';
+  newHeigth: string = '80px';
+  newPadding: string = '-10px';
+  changedSize: string[];
+
   constructor(private songService: SongService, private notification: NotificationsService) { }
 
   ngOnInit() {
     this.getAllSongs();
+    this.changedSize = [ this.newWidth, this.newHeigth, this.newPadding ];
   }
 
   getAllSongs() {
