@@ -8,7 +8,8 @@ import { NotificationsService } from '../../../../node_modules/angular2-notifica
 
 @Component({
   selector: 'app-edit-information',
-  templateUrl: './edit-information.component.html'
+  templateUrl: './edit-information.component.html',
+  styleUrls: [ './edit-information.component.css' ]
 })
 
 export class EditInformationComponent implements OnInit {

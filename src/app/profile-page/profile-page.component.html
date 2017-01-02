@@ -4,10 +4,14 @@
             <div class="container main center" [highlighter]="changedColor">
                 <br>
                 <br>
-                <img class="circle responsive-img" [src]="userAvatarUrl" alt="profile picture">
-                <h1 class="header center teal-text text-darken-4">{{currentUser.username}}</h1>
-                <p>Full Name: {{currentUser.firstname}} {{currentUser.lastname}}</p>
-                <h5 class="header col s12 light">welcome back!</h5>
+                <div>
+                    <img class="circle responsive-img" [src]="userAvatarUrl" alt="profile picture">
+                </div>
+                <div>
+                    <h1 class="header center teal-text text-darken-4">{{currentUser.username}}</h1>
+                    <p>Full Name: {{currentUser.firstname}} {{currentUser.lastname}}</p>
+                    <h5 class="header col s12 light">welcome back!</h5>
+                </div>
                 <br>
                 <br>
             </div>
@@ -24,7 +28,6 @@
         </div>
     </nav>
     <router-outlet></router-outlet>
-
     <!--<div id="test1" class="col s12">
         <app-create-playlist></app-create-playlist>
     </div>

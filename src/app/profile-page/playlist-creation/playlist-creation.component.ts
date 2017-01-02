@@ -8,7 +8,8 @@ import { NotificationsService } from '../../../../node_modules/angular2-notifica
 
 @Component({
   selector: 'app-create-playlist',
-  templateUrl: './playlist-creation.component.html'
+  templateUrl: './playlist-creation.component.html',
+  styleUrls: [ './playlist-creation.component.css' ]
 })
 
 export class PlaylistCreationComponent implements OnInit {

@@ -13,7 +13,6 @@ export class BlurBackgroundDirective {
   constructor() { }
 
   @HostListener('mouseenter') onMouseEnter() {
-  	console.log(this.filterValues);
   	this.blur(this.filterValues);
   }
 

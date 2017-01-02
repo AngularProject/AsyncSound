@@ -18,7 +18,7 @@ const DEFAULT_AVATAR_URL = 'http://localhost:3000/static/images/default-avatar.p
 })
 
 export class ProfilePageComponent implements OnInit {
-   private changedColor: string;
+   changedColor: string;
 
    currentUser: User;
    userAvatarUrl: string;
@@ -36,7 +36,6 @@ export class ProfilePageComponent implements OnInit {
 
     ngOnInit() {
        this.changedColor = 'rgba(243, 243, 243, 0.22)';
-
        this._activatedRoute.params
           .map(params => params['id'])
           .subscribe((id) => {

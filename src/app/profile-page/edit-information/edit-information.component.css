@@ -1,0 +1,14 @@
+.register-form {
+    position: relative;
+
+    width: 380px;
+    height: 460px;
+
+    left: 480px;
+    margin-top: 20px;
+    margin-bottom: 80px;
+}
+
+button {
+	left: 10px;
+}
