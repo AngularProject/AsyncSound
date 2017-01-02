@@ -59,7 +59,7 @@ export class PlaylistService {
      getAllPlaylistsOfUser(userId: string) {
 
 		 let body: string = JSON.stringify(userId);
-		 console.log(22);
+		 console.log(userId);
 		 return this.http
 			.get(GET_USER_PLAYLIST_URL + userId)
 			.map((res: Response) => res.json());

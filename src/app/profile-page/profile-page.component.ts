@@ -32,13 +32,6 @@ export class ProfilePageComponent implements OnInit {
 
       // this.userAvatarUrl = this.profileService.getUserAvatar(this.currentUser.username);
       this.userAvatarUrl = DEFAULT_AVATAR_URL;
-            this.getUserPlaylist();
-
-      // this._activatedRoute.params
-      //       .map(params => params['id'])
-      //       .subscribe((id) => {
-      //           this.getUser(id);
-      //       });
       }
 
     ngOnInit() {
@@ -56,19 +49,5 @@ export class ProfilePageComponent implements OnInit {
         .subscribe((response: any) => {
           this.currentUser = response;
         });
-    }
-
-    getUserPlaylist() {
-      // if (this.isTrue) {
-      console.log("here?");
-      //   this.isTrue = false;
-      let us = JSON.parse(localStorage.getItem('user'));
-      this.playlistService.getAllPlaylistsOfUser(us._id)
-         .subscribe((response: any) => {
-           
-           this.playlists = response;
-           console.log(this.playlists);
-        });
-        // }
     }
 }

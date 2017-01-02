@@ -25,6 +25,8 @@ import { AdminListComponent } from './admin-page/admin-list.component';
 import { PlaylistDetailedComponent } from './playlist/playlist-detailed.component';
 import { SongComponent } from './song/song.component';
 import { PlaylistCreationComponent } from './profile-page/playlist-creation/playlist-creation.component';
+import { PlaylistListingComponent } from './profile-page/playlist-listing/playlist-listing.component';
+import { EditInformationComponent } from './profile-page/edit-information/edit-information.component';
 
 import { SearchPlaylistPipe } from './pipes/search.pipe';
 import { SortPlaylistsPipe } from './pipes/sort.pipe';
@@ -66,7 +68,9 @@ import { ZoomItemDirective } from './directives/zoom-item.directive';
     PlaylistDropdownComponent,
     PlaylistDetailedComponent,
     PlaylistCreationComponent,
-    ZoomItemDirective
+    ZoomItemDirective,
+    PlaylistListingComponent,
+    EditInformationComponent
   ],
   imports: [
     BrowserModule,
