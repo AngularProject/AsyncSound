@@ -15,14 +15,18 @@ export class SongComponent implements OnInit {
   @Output() song;
 
   songs: Song[];
-  pageInfo: any = {};
-  pagedItems: any[];
   searchingSong: string;
+
+  currentPage: number = 1;
+  pageSize: number = 10;
+  pages: number;
+  pagesNumbers: number[];
 
   newWidth: string = '485px';
   newHeigth: string = '80px';
   newPadding: string = '-10px';
   changedSize: string[];
+
   constructor(private songService: SongService,
               private notification: NotificationsService,
               private pageService: PageService,
@@ -53,7 +57,6 @@ export class SongComponent implements OnInit {
               return;
             } else {
               this.songs = response as Song[];
-              this.setPage(1);
             };
         }, ()=> this.notification.error('Loading songs failed', 'Error'))
   }
@@ -66,7 +69,9 @@ export class SongComponent implements OnInit {
               this.notification.error('Loading songs failed', response.message);
             } else {
               this.songs = response as Song[];
-              this.setPage(1);
+
+              this.pages = Math.ceil(this.songs.length / this.pageSize);
+              this.pagesNumbers = Array(this.pages).fill(0).map((x, page) => page + 1);
             };
         }, ()=> this.notification.error('Loading songs failed', 'Error'))
   }
@@ -77,12 +82,8 @@ export class SongComponent implements OnInit {
 
     this.router.navigateByUrl(url);
   }
-  public setPage(page: number) {
-      if (page < 1 || page > this.pageInfo.totalPages) {
-            return;
-        }
-
-        this.pageInfo = this.pageService.getPage(this.songs.length, page);
-        this.pagedItems = this.songs.slice(this.pageInfo.startIndex, this.pageInfo.endIndex + 1);
-    }
+  
+  private onPageClick(page: number){
+    this.currentPage = page;
   }
+}

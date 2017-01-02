@@ -31,6 +31,7 @@ import { PlaylistDropdownComponent } from './playlist-dropdown/playlist-dropdown
 
 import { SearchPlaylistPipe } from './pipes/search.pipe';
 import { SortPlaylistsPipe } from './pipes/sort.pipe';
+import { PaginationPipe } from './pipes/pagination.pipe';
 
 import {
   HttpOptionsService,
@@ -73,7 +74,8 @@ import { BlurBackgroundDirective } from './directives/blur-background.directive'
     ZoomItemDirective,
     PlaylistListingComponent,
     EditInformationComponent,
-    BlurBackgroundDirective
+    BlurBackgroundDirective,
+    PaginationPipe
   ],
   imports: [
     BrowserModule,
