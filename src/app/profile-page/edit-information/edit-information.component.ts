@@ -1,9 +1,10 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 
-import { Playlist } from '../../models/playlist';
+import { Register } from '../../models/Register';
 
-import { PlaylistService } from '../../../services/playlist.service';
+import { LoginService } from '../../../services/';
 import { NotificationsService } from '../../../../node_modules/angular2-notifications';
 
 @Component({
@@ -13,15 +14,33 @@ import { NotificationsService } from '../../../../node_modules/angular2-notifica
 })
 
 export class EditInformationComponent implements OnInit {
-   model: any;
+   model: Register;
 
-    constructor(private playlistService: PlaylistService, private notification: NotificationsService) {
+    constructor(private notification: NotificationsService, private loginService: LoginService, private router: Router) {
+        this.model = new Register();
     }
 
     ngOnInit() {
+        const user = JSON.parse(localStorage.getItem('user'));
+        this.model.username = user.username;
+        this.model.firstname = user.firstname;
+        this.model.lastname = user.lastname;
+        this.model.email = user.email;
+
     }
 
-    editInformation() {
-        console.log('fake edited');
+    editUserProfile() {
+        this.loginService
+            .editUserProfile(this.model)
+            .subscribe(response=> {
+                if(response.error) {
+                    this.notification.error("Editing failed", response.error);
+                } else {
+                    this.notification.success("Profile updated", response.firstname)
+                    localStorage.removeItem('user');
+                    localStorage.setItem('user', JSON.stringify(response));
+                    this.model.password = '';
+                }
+            }, ()=> this.notification.error("Editing failed", "Try again later!"))
     }
 }
