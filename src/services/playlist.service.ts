@@ -10,6 +10,8 @@ import { Playlist } from '../app/models/Playlist';
 import { Comment } from '../app/models/Comment';
 
 const PLAYLIST_URL = 'http://localhost:3000/api/playlists/';
+const GET_USER_PLAYLIST_URL = 'http://localhost:3000/user-playlists/';
+const CREATE_PLAYLIST_URL = 'http://localhost:3000/playlist/add';
 
 @Injectable()
 export class PlaylistService {
@@ -46,6 +48,20 @@ export class PlaylistService {
 	}
 
 	createPlaylist(playlist: Playlist) {
-		this.playlists.push(playlist);
-	}
+		let body: string = JSON.stringify(playlist);
+		let options: RequestOptions = this.httpOptionsService.getRequestOptions(true);
+
+		return this.http
+		.post(CREATE_PLAYLIST_URL, body, options)
+		.map((res: Response) => res.json());
+     }
+
+     getAllPlaylistsOfUser(userId: string) {
+
+		 let body: string = JSON.stringify(userId);
+		 
+		 return this.http
+			.get(GET_USER_PLAYLIST_URL + userId)
+			.map((res: Response) => res.json());
+	 }
 }

@@ -6,6 +6,7 @@ import { Playlist } from '../models/playlist';
 import { Comment } from '../models/comment';
 
 import { ProfileService } from '../../services/profile.service';
+import { PlaylistService } from '../../services/playlist.service';
 
 // TODO: user should be able to change it's avatar
 const DEFAULT_AVATAR_URL = 'http://localhost:3000/static/images/default-avatar.png';
@@ -20,8 +21,11 @@ export class ProfilePageComponent implements OnInit {
  currentUser: User;
  userAvatarUrl: string;
  playlists: Playlist[] = [];
+	 isTrue = true;
 
-   constructor(private _activatedRoute: ActivatedRoute, private profileService: ProfileService) {
+   constructor(private _activatedRoute: ActivatedRoute,
+    private profileService: ProfileService,
+    private playlistService: PlaylistService) {
       this.currentUser = JSON.parse(localStorage.getItem('user'));
 
       // this.userAvatarUrl = this.profileService.getUserAvatar(this.currentUser.username);
@@ -47,5 +51,16 @@ export class ProfilePageComponent implements OnInit {
         .subscribe((response: any) => {
           this.currentUser = response;
         });
+    }
+
+    getUserPlaylist() {
+      if (this.isTrue) {
+        this.isTrue = false;
+      let us = JSON.parse(localStorage.getItem('user'));
+      this.playlistService.getAllPlaylistsOfUser(us._id)
+         .subscribe((response: any) => {
+           this.playlists = response;
+        });
+        }
     }
 }
