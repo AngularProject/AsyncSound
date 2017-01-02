@@ -37,7 +37,8 @@ import {
   PlaylistService,
   AdminService,
   ProfileService,
-  SongService } from '../services';
+  SongService,
+  PageService } from '../services';
 
 import { AuthGuard } from './guard/auth.guard';
 import { AdminGuard } from './guard/admin.guard';
@@ -84,7 +85,8 @@ import { HighlighterDirective } from './directives/highlighter.directive';
     PlaylistService,
     AdminService,
     ProfileService,
-    SongService
+    SongService,
+    PageService
   ],
   bootstrap: [AppComponent]
 })
