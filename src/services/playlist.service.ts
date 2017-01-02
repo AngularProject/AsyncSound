@@ -13,6 +13,7 @@ const PLAYLIST_URL = 'http://localhost:3000/api/playlists/';
 const GET_PLAYLISTS = 'http://localhost:3000/playlists';
 const GET_USER_PLAYLIST_URL = 'http://localhost:3000/user-playlists/';
 const CREATE_PLAYLIST_URL = 'http://localhost:3000/playlist/add';
+const PIN_PLAYLIST_URL = 'http://localhost:3000/pin-playlist';
 
 @Injectable()
 export class PlaylistService {
@@ -65,6 +66,15 @@ export class PlaylistService {
 
 		 return this.http
 			.get(GET_USER_PLAYLIST_URL + userId)
+			.map((res: Response) => res.json());
+	 }
+
+	 pinPlaylist(user) {
+		let body: string = JSON.stringify(user);
+		let options: RequestOptions = this.httpOptionsService.getRequestOptions(true);
+
+		return this.http
+			.post(PIN_PLAYLIST_URL, body, options)
 			.map((res: Response) => res.json());
 	 }
 }

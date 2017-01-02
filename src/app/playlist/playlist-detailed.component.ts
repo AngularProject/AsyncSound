@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 
 import { PlaylistService } from '../../services/playlist.service';
+import { NotificationsService } from '../../../node_modules/angular2-notifications';
 
 import { SearchPlaylistPipe } from '../pipes/search.pipe';
 import { SortPlaylistsPipe } from '../pipes/sort.pipe';
@@ -17,28 +18,40 @@ export class PlaylistDetailedComponent implements OnInit {
   @Input() playlist: Playlist;
   isAdded: boolean = false;
 
-  constructor(private playlistService: PlaylistService) {
+  constructor(private playlistService: PlaylistService, private notification: NotificationsService) {
   }
 
   ngOnInit() {
-    let playlistsOfUser = JSON.parse(localStorage.getItem('playlist'));
-    // console.log('here');
-    // console.log(playlistsOfUser);
+    this.checkIfPinned();
+  }
+
+  addPlaylist() {
+    let user = JSON.parse(localStorage.getItem('user')).username;
+    let body = { 
+      user,
+      playlist: this.playlist
+    };
+
+    this.playlistService.pinPlaylist(body)
+      .subscribe((response: any) => {
+           if (response.error) {
+                    this.notification.error('Something went wrong', response.error);
+                } else {
+                    this.checkIfPinned();
+                    // localStorage.removeItem('playlist');
+                    this.notification.success(`Playlist ${this.playlist.title} pinned successfully!`, response.message);
+                }
+      });
+  }
+
+  private checkIfPinned() {
+     let playlistsOfUser = JSON.parse(localStorage.getItem('playlist'));
     if (!!playlistsOfUser) {
         playlistsOfUser.forEach((item) => {
           if (item.title === this.playlist.title) {
-            console.log(item.title);
             this.isAdded = true;
           }
       });
     }
-    
-    // playlistsOfUser.forEach((item, index) => {
-    // console.log(item);
-    //     titles.push(item.title);
-    // });
-
-    // // this.isAdded = playlistsOfUser.title.indexOf(this.playlist.title) >= 0;
-    // console.log(titles);
   }
 }
