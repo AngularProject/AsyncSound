@@ -1,8 +1,8 @@
 <!-- Dropdown Trigger -->
 <a *ngIf="isLogged" class="dropdown-button btn-floating waves-effect waves-light" (click)="getUserPlaylists(); showContent()"><i class="material-icons">add</i></a>
 <!-- Dropdown Structure -->
-<div *ngIf="isVisible" >
-  <ul *ngFor="let playlist of playlists" class="collection">
+<div *ngIf="isVisible" class="collection-wrapper">
+  <ul *ngFor="let playlist of playlists" class="collection" >
     <li class="collection-item" (click)="addSongInPlaylist(playlist._id)"><a class="badge">{{playlist.title}}</a></li>
   </ul>
 </div>

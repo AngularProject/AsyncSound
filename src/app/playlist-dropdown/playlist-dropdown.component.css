@@ -1,4 +1,4 @@
-.collection {
+.collection-wrapper {
     position: absolute;
     overflow-y: auto;
     z-index: 9999;
@@ -6,4 +6,12 @@
 
 .collection-item:hover {
     background-color:lightgray;
+}
+
+.collection {
+    margin: 0px;
+
+} 
+.collection-item {
+    margin: 0px;
 }
