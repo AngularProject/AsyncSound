@@ -15,7 +15,7 @@ export class SongComponent implements OnInit {
   @Output() song;
 
   songs: Song[];
-  searchingSong: string;
+  searchByText: string;
 
   currentPage: number = 1;
   pageSize: number = 10;
@@ -76,11 +76,8 @@ export class SongComponent implements OnInit {
         }, ()=> this.notification.error('Loading songs failed', 'Error'))
   }
 
-  public search() {
-    let url = '/songs/' + this.searchingSong;
-    this.searchingSong = '';
-
-    this.router.navigateByUrl(url);
+  private onSearchTextChange(searchValue: string) {
+    this.searchByText = searchValue;
   }
   
   private onPageClick(page: number){
