@@ -6,6 +6,7 @@ import { Playlist } from '../models/playlist';
 import { Comment } from '../models/comment';
 
 import { ProfileService } from '../../services/profile.service';
+import { PlaylistService } from '../../services/playlist.service';
 
 // TODO: user should be able to change it's avatar
 const DEFAULT_AVATAR_URL = 'http://localhost:3000/static/images/default-avatar.png';
@@ -20,18 +21,22 @@ export class ProfilePageComponent implements OnInit {
  currentUser: User;
  userAvatarUrl: string;
  playlists: Playlist[] = [];
+  isTrue = true;
 
-   constructor(private _activatedRoute: ActivatedRoute, private profileService: ProfileService) {
+   constructor(private _activatedRoute: ActivatedRoute,
+    private profileService: ProfileService,
+    private playlistService: PlaylistService) {
       this.currentUser = JSON.parse(localStorage.getItem('user'));
 
       // this.userAvatarUrl = this.profileService.getUserAvatar(this.currentUser.username);
       this.userAvatarUrl = DEFAULT_AVATAR_URL;
+            this.getUserPlaylist();
 
-      this._activatedRoute.params
-            .map(params => params['id'])
-            .subscribe((id) => {
-                this.getUser(id);
-            });
+      // this._activatedRoute.params
+      //       .map(params => params['id'])
+      //       .subscribe((id) => {
+      //           this.getUser(id);
+      //       });
       }
 
     ngOnInit() {
@@ -40,6 +45,7 @@ export class ProfilePageComponent implements OnInit {
           .subscribe((id) => {
             this.getUser(id);
           });
+
     }
 
     private getUser(id) {
@@ -47,5 +53,19 @@ export class ProfilePageComponent implements OnInit {
         .subscribe((response: any) => {
           this.currentUser = response;
         });
+    }
+
+    getUserPlaylist() {
+      // if (this.isTrue) {
+      console.log("here?");
+      //   this.isTrue = false;
+      let us = JSON.parse(localStorage.getItem('user'));
+      this.playlistService.getAllPlaylistsOfUser(us._id)
+         .subscribe((response: any) => {
+           
+           this.playlists = response;
+           console.log(this.playlists);
+        });
+        // }
     }
 }

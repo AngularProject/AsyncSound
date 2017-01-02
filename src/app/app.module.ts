@@ -23,10 +23,11 @@ import { SearchPlaylistComponent } from './search-playlist/search-playlist.compo
 import { SortPlaylistsComponent } from './sort-playlists/sort-playlists.component';
 import { AdminListComponent } from './admin-page/admin-list.component';
 import { PlaylistDetailedComponent } from './playlist/playlist-detailed.component';
+import { SongComponent } from './song/song.component';
+import { PlaylistCreationComponent } from './profile-page/playlist-creation/playlist-creation.component';
 
 import { SearchPlaylistPipe } from './pipes/search.pipe';
 import { SortPlaylistsPipe } from './pipes/sort.pipe';
-import { SongComponent } from './song/song.component';
 
 import {
   HttpOptionsService,
@@ -41,6 +42,8 @@ import {
 import { AuthGuard } from './guard/auth.guard';
 import { AdminGuard } from './guard/admin.guard';
 import { PlaylistDropdownComponent } from './playlist-dropdown/playlist-dropdown.component';
+
+import { HighlighterDirective } from './directives/highlighter.directive';
 
 @NgModule({
   declarations: [
@@ -58,9 +61,10 @@ import { PlaylistDropdownComponent } from './playlist-dropdown/playlist-dropdown
     SearchPlaylistPipe,
     SortPlaylistsPipe,
     SongComponent,
+    HighlighterDirective,
     PlaylistDropdownComponent,
-    PlaylistDetailedComponent
-
+    PlaylistDetailedComponent,
+    PlaylistCreationComponent
   ],
   imports: [
     BrowserModule,
@@ -71,15 +75,15 @@ import { PlaylistDropdownComponent } from './playlist-dropdown/playlist-dropdown
     AdminModule
   ],
   providers: [
+    AuthGuard,
+    AdminGuard,
     HttpOptionsService,
     RegisterService,
     LoginService,
     UserService,
-    AuthGuard,
     PlaylistService,
     AdminService,
     ProfileService,
-    AdminGuard,
     SongService
   ],
   bootstrap: [AppComponent]

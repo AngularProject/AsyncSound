@@ -1,0 +1,16 @@
+<div class="register-form row">
+    <form (ngSubmit)="createPlaylist()">
+        <div class="row">
+            <div class="input-field col s6">
+                <i class="material-icons prefix">queue_music</i>
+                <input type="text" class="form-control" id="name" required [(ngModel)]="model" name="name">
+                <label for="name">Playlist title:</label>
+            </div>
+            <button class="btn waves-effect waves-light form-group" type="submit" name="action">Create playlist
+                <i class="material-icons">send</i>
+            </button>
+        </div>
+
+    </form>
+    <!--<simple-notifications [options]="options"></simple-notifications>-->
+</div>
