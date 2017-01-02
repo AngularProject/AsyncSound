@@ -52,7 +52,6 @@ export class SongComponent implements OnInit {
             if(response.error) {
               return;
             } else {
-              this.notification.success('Songs loaded', ':)');
               this.songs = response as Song[];
               this.setPage(1);
             };
