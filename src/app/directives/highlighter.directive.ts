@@ -1,17 +1,18 @@
 import { Directive, ElementRef, HostListener, Input } from '@angular/core';
 
+const DEFAULT_HIGHLIGHT_COLOR = 'rgba(243, 243, 243, 0.15)';
+
 @Directive({
   selector: '[highlighter]'
 })
 
 export class HighlighterDirective {
+  @Input('highlighter') highlightColor: string;
 
   constructor(private element: ElementRef) { }
 
-  @Input('highlighter') highlightColor: string;
-
   @HostListener('mouseenter') onMouseEnter() {
-    this.highlight(this.highlightColor || 'rgba(243, 243, 243, 0.15)');
+    this.highlight(this.highlightColor || DEFAULT_HIGHLIGHT_COLOR);
   }
 
   @HostListener('mouseleave') onMouseLeave() {

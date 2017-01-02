@@ -27,6 +27,7 @@ import { SongComponent } from './song/song.component';
 import { PlaylistCreationComponent } from './profile-page/playlist-creation/playlist-creation.component';
 import { PlaylistListingComponent } from './profile-page/playlist-listing/playlist-listing.component';
 import { EditInformationComponent } from './profile-page/edit-information/edit-information.component';
+import { PlaylistDropdownComponent } from './playlist-dropdown/playlist-dropdown.component';
 
 import { SearchPlaylistPipe } from './pipes/search.pipe';
 import { SortPlaylistsPipe } from './pipes/sort.pipe';
@@ -43,10 +44,10 @@ import {
 
 import { AuthGuard } from './guard/auth.guard';
 import { AdminGuard } from './guard/admin.guard';
-import { PlaylistDropdownComponent } from './playlist-dropdown/playlist-dropdown.component';
 
 import { HighlighterDirective } from './directives/highlighter.directive';
 import { ZoomItemDirective } from './directives/zoom-item.directive';
+import { BlurBackgroundDirective } from './directives/blur-background.directive';
 
 @NgModule({
   declarations: [
@@ -70,7 +71,8 @@ import { ZoomItemDirective } from './directives/zoom-item.directive';
     PlaylistCreationComponent,
     ZoomItemDirective,
     PlaylistListingComponent,
-    EditInformationComponent
+    EditInformationComponent,
+    BlurBackgroundDirective
   ],
   imports: [
     BrowserModule,
