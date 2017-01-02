@@ -9,6 +9,7 @@ import { HttpOptionsService } from './http.options.service';
 
 const SONG_URL: string = 'http://localhost:3000/api/songs/';
 const SONG_CATEGORY_URL: string = 'http://localhost:3000/api/songs/category/';
+const SONG_SEARCH_URL: string = "http://localhost:3000/api/songs/search/"
 
 @Injectable()
 export class SongService {
@@ -24,4 +25,13 @@ constructor(private http: Http, private httpOptionsService: HttpOptionsService) 
             .map((res: Response) => res.json());
     }
 
+    public getSongByTitle(title): Observable<any> {
+
+        let url = SONG_SEARCH_URL + title;
+        let options: RequestOptions = this.httpOptionsService.getRequestOptions(false);
+
+        return this.http
+            .get(url, options)
+            .map((res: Response) => res.json());
+    }
 }
