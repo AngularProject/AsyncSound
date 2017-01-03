@@ -10,6 +10,7 @@
                 <div>
                     <h1 class="header center teal-text text-darken-4">{{currentUser.username}}</h1>
                     <p>Full Name: {{currentUser.firstname}} {{currentUser.lastname}}</p>
+                    <p>E-mail: {{currentUser.email}}</p>
                     <h5 class="header col s12 light">welcome back!</h5>
                 </div>
                 <br>
@@ -20,20 +21,11 @@
     <nav class="nav-extended teal darken-4">
         <div class="nav-wrapper">
             <ul class="tabs tabs-transparent">
-                <li class="tab"><a routerLink="create-playlist">Create playlist</a></li>
-                <li class="tab"><a routerLink="user-playlists" class="active">My playlists</a></li>
-                <!--<li class="tab disabled"><a href="#test3">Disabled Tab</a></li>-->
-                <li class="tab"><a routerLink="edit-information">Edit information</a></li>
+                <li class="tab" *ngIf="isSameUserProfile"><a routerLink="create-playlist">Create playlist</a></li>
+                <li class="tab"><a routerLink="user-playlists" class="active">Playlists</a></li>
+                <li class="tab" *ngIf="isSameUserProfile"><a routerLink=" edit-information ">Edit information</a></li>
             </ul>
         </div>
     </nav>
     <router-outlet></router-outlet>
-    <!--<div id="test1" class="col s12">
-        <app-create-playlist></app-create-playlist>
-    </div>
-    <div id="test2" class="col s12">
-        <app-list-playlist></app-list-playlist>
-    </div>
-    <!--<div id="test3" class="col s12">Test 3</div>-->
-    <!--<div id="test4" class="col s12">Test 4</div>-->
 </div>

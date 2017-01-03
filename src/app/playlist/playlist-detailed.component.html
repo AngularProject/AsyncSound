@@ -5,17 +5,14 @@
             <span class="card-title">{{playlist.title}}</span>
         </div>
         <div class="card-content">
-            <div *ngIf="!isAdded" class="row">
-                <a class="btn-floating  waves-effect waves-light" (click)="addPlaylist()"><i class="tiny material-icons">add</i></a>
+            <div *ngIf="isLogged" class="row">
+                <a *ngIf="!isAdded" class="btn-floating  waves-effect waves-light" (click)="addPlaylist()"><i class="tiny material-icons">add</i></a>
                 <!--<a class="btn-floating waves-effect waves-light"><i class="material-icons tiny">thumb_up</i></a>
                 <a class="btn-floating waves-effect waves-light red lighten-2"><i class="material-icons small">thumb_down</i></a>-->
-            </div>
-            <div *ngIf="isAdded" class="row">
-                <a class="btn-floating  waves-effect waves-light" (click)="removePlaylist()"><i class="tiny material-icons">remove</i></a>
+                <a *ngIf="isAdded" class="btn-floating  waves-effect waves-light" (click)="removePlaylist()"><i class="tiny material-icons">remove</i></a>
             </div>
             <p>By:
                 <a [routerLink]="['../profile', playlist.creator]"> {{playlist.creator}}</a>
-                <br>Likes: {{playlist.voteUp[0]}}
             </p>
         </div>
         <ul class="collection" *ngFor="let song of playlist.songs; let i = index">
@@ -27,7 +24,6 @@
                     <source src="{{song.oggUrl}}" type="audio/ogg">
                     <source src="{{song.mp3Url}}" type="audio/mpeg"> Your browser does not support the audio element.
               </audio>
-                <a class="secondary-content"><i class="material-icons">grade</i></a>
             </li>
         </ul>
     </div>

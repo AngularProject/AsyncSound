@@ -27,7 +27,7 @@ export class PlaylistService {
 
 		let url = PLAYLIST_URL + username;
         let options: RequestOptions = this.httpOptionsService.getRequestOptions(false);
-
+		console.log(url);
         return this.http
             .get(url, options)
             .map((res: Response) => res.json());
@@ -42,17 +42,18 @@ export class PlaylistService {
             .post(PLAYLIST_URL, body, options)
             .map((res: Response) => res.json());
     }
-	getAllPlaylists(): Observable<any> {
+
+	public getAllPlaylists(): Observable<any> {
 		 return this.http
 			.get(GET_PLAYLISTS)
 			.map((res: Response) => res.json());
 	}
 
-	getPlaylistByTitle(title: string) {
+	public getPlaylistByTitle(title: string) {
 		return this.playlists.find(x => x.title === title);
 	}
 
-	createPlaylist(playlist: Playlist) {
+	public createPlaylist(playlist: Playlist) {
 		let body: string = JSON.stringify(playlist);
 		console.log(body);
 		let options: RequestOptions = this.httpOptionsService.getRequestOptions(true);
@@ -62,7 +63,7 @@ export class PlaylistService {
 		.map((res: Response) => res.json());
      }
 
-     getAllPlaylistsOfUser(userId: string): Observable<any> {
+     public getAllPlaylistsOfUser(userId: string): Observable<any> {
 		 let body: string = JSON.stringify(userId);
 
 		 return this.http
@@ -70,7 +71,7 @@ export class PlaylistService {
 			.map((res: Response) => res.json());
 	 }
 
-	 pinPlaylist(user) {
+	 public pinPlaylist(user) {
 		let body: string = JSON.stringify(user);
 		let options: RequestOptions = this.httpOptionsService.getRequestOptions(true);
 
@@ -79,7 +80,7 @@ export class PlaylistService {
 			.map((res: Response) => res.json());
 	 }
 
-	 removePlaylist(data) {
+	 public removePlaylist(data) {
 		 	let body: string = JSON.stringify(data);
 		let options: RequestOptions = this.httpOptionsService.getRequestOptions(true);
 

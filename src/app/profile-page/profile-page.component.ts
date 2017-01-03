@@ -23,28 +23,29 @@ export class ProfilePageComponent implements OnInit {
    currentUser: User;
    userAvatarUrl: string;
    playlists: Playlist[] = [];
-   isTrue = true;
+   isSameUserProfile = false;
 
-   constructor(private _activatedRoute: ActivatedRoute,
-    private profileService: ProfileService,
-    private playlistService: PlaylistService) {
-      this.currentUser = JSON.parse(localStorage.getItem('user'));
-
-      // this.userAvatarUrl = this.profileService.getUserAvatar(this.currentUser.username);
-      this.userAvatarUrl = DEFAULT_AVATAR_URL;
-      }
+   constructor(
+     private activatedRoute: ActivatedRoute,
+     private profileService: ProfileService,
+     private playlistService: PlaylistService) {
+        this.userAvatarUrl = DEFAULT_AVATAR_URL;
+  }
 
     ngOnInit() {
+      this.currentUser = JSON.parse(localStorage.getItem('user'));
+
        this.changedColor = 'rgba(243, 243, 243, 0.22)';
-       this._activatedRoute.params
+       this.activatedRoute.params
           .map(params => params['username'])
-          .subscribe((id) => {
-            this.getUser(id);
+          .subscribe((username) => {
+            this.isSameUserProfile = this.currentUser.username === username;
+            this.getUser(username);
           });
     }
 
-    private getUser(id) {
-        this.profileService.getUserProfile(id)
+    private getUser(username) {
+        this.profileService.getUserProfile(username)
         .subscribe((response: any) => {
           this.currentUser = response;
         });
