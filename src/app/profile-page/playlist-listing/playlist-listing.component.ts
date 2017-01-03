@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
-import { Playlist } from '../../models/playlist';
+import { Playlist } from '../../models/Playlist';
 
 import { PlaylistService } from '../../../services/playlist.service';
 import { NotificationsService } from '../../../../node_modules/angular2-notifications';

@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { User } from '../models/User';
-import { Playlist } from '../models/playlist';
-import { Comment } from '../models/comment';
+import { Playlist } from '../models/Playlist';
+import { Comment } from '../models/Comment';
 
 import { ProfileService } from '../../services/profile.service';
 import { PlaylistService } from '../../services/playlist.service';
