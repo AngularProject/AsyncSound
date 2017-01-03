@@ -4,7 +4,7 @@ import { Observable } from 'rxjs/Observable';
 
 import { HttpOptionsService } from './http.options.service';
 
-const REGISTER_URL: string = 'http://localhost:3000/auth/register';
+const REGISTER_URL = 'http://localhost:3000/auth/register';
 
 @Injectable()
 export class RegisterService {

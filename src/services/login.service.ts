@@ -7,18 +7,17 @@ import 'rxjs/add/operator/map';
 
 import { HttpOptionsService } from './http.options.service';
 
-const LOGIN_URL: string = 'http://localhost:3000/auth/login';
-const LOGOUT_URL: string = 'http://localhost:3000/auth/logout';
-const EDIT_URL: string = 'http://localhost:3000/auth/edit';
+const LOGIN_URL = 'http://localhost:3000/auth/login';
+const LOGOUT_URL = 'http://localhost:3000/auth/logout';
+const EDIT_URL = 'http://localhost:3000/auth/edit';
 
 @Injectable()
 export class LoginService {
-    
+
     constructor(private http: Http, private httpOptionService: HttpOptionsService) {
     }
 
-    // TO DO ===> VERIFYING!
-    public isUserLogged() : boolean {
+    public isUserLogged(): boolean {
         let userData: string = localStorage.getItem('user');
 
         if (!userData) {

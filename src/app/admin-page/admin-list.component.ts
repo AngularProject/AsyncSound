@@ -16,10 +16,10 @@ export class AdminListComponent {
     @Input() admin: any;
     @Output() delete: EventEmitter<any> = new EventEmitter<any>();
 
- 	adminAvatarUrl: string;
+    adminAvatarUrl: string;
 
     constructor(private adminService: AdminService, private notificationService: NotificationsService) {
-    	this.adminAvatarUrl = DEFAULT_AVATAR_URL;
+        this.adminAvatarUrl = DEFAULT_AVATAR_URL;
     }
 
     deleteAdmin() {

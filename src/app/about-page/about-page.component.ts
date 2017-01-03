@@ -5,12 +5,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./about-page.component.css']
 })
 export class AboutPageComponent implements OnInit {
-	private changedColor: string;
-	
-  	constructor() { }
+  private changedColor: string;
 
- 	ngOnInit() {
- 		this.changedColor = 'rgba(243, 243, 243, 0.22)';
- 	}
+  constructor() { }
 
+  ngOnInit() {
+    this.changedColor = 'rgba(243, 243, 243, 0.22)';
+  }
 }

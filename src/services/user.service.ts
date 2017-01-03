@@ -14,7 +14,6 @@ export class UserService {
         this.isUserLoggedSubject = new Subject<boolean>();
     }
 
-
     public getUserLogged(): Observable<boolean> {
         return this.isUserLoggedSubject.asObservable();
     }

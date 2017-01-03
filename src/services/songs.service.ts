@@ -13,11 +13,13 @@ const SONG_SEARCH_URL: string = "http://localhost:3000/api/songs/search/"
 
 @Injectable()
 export class SongService {
-constructor(private http: Http, private httpOptionsService: HttpOptionsService) {
+
+     constructor(
+         private http: Http, 
+         private httpOptionsService: HttpOptionsService) {
     }
 
     public getAllSongs(): Observable<any> {
-
         let options: RequestOptions = this.httpOptionsService.getRequestOptions(false);
 
         return this.http
@@ -26,7 +28,6 @@ constructor(private http: Http, private httpOptionsService: HttpOptionsService) 
     }
 
     public getSongByTitle(title): Observable<any> {
-
         let url = SONG_SEARCH_URL + title;
         let options: RequestOptions = this.httpOptionsService.getRequestOptions(false);
 

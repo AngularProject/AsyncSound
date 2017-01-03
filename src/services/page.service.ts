@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
-import * as _ from 'underscore'
+import * as _ from 'underscore';
 
 @Injectable()
 export class PageService {
-    
+
     constructor() {
     }
 
@@ -13,7 +13,7 @@ export class PageService {
 
         let startPage: number;
         let endPage: number;
-        
+
         if (totalPages <= 10) {
             // less than 10 total pages so show all
             startPage = 1;
@@ -29,7 +29,7 @@ export class PageService {
             } else {
                 startPage = currentPage - 5;
                 endPage = currentPage + 4;
-            }   
+            }
         }
 
         // calculate start and end item indexes

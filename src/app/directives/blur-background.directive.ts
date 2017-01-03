@@ -13,15 +13,15 @@ export class BlurBackgroundDirective {
   constructor() { }
 
   @HostListener('mouseenter') onMouseEnter() {
-  	this.blur(this.filterValues);
+    this.blur(this.filterValues);
   }
 
   @HostListener('mouseleave') onMouseLeave() {
-  	this.blur([null, null]);
+    this.blur([null, null]);
   }
 
   private blur(filterValues: any[]) {
-  	document.getElementById('blur-section').style.filter = filterValues[0];
-  	document.getElementById('blur-section').style.opacity = filterValues[1];
+    document.getElementById('blur-section').style.filter = filterValues[0];
+    document.getElementById('blur-section').style.opacity = filterValues[1];
   }
 }
