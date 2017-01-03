@@ -7,9 +7,9 @@ import 'rxjs/add/operator/map';
 import { HttpOptionsService } from './http.options.service';
 
 // const SET_ROLE_URL = ;
-const GET_ADMINS_URL  = process.env.GET_ADMINS_URL || 'http://localhost:3000/all-admins';
-const REMOVE_ADMIN_URL = process.env.REMOVE_ADMIN_URL || 'http://localhost:3000/remove-role';
-const SET_ROLE_URL = process.env.SET_ROLE_URL || 'http://localhost:3000/user-role';
+const GET_ADMINS_URL  = 'https://async-sound-server.herokuapp.com/all-admins';
+const REMOVE_ADMIN_URL = 'https://async-sound-server.herokuapp.com/remove-role';
+const SET_ROLE_URL = 'https://async-sound-server.herokuapp.com/user-role';
 
 @Injectable()
 export class AdminService {

@@ -11,5 +11,5 @@ div.main {
 }
 
 .parallax-container {
-	background-image: url("/images/background.jpg");
+	background-image: url("https://async-sound-server.herokuapp.com/static/images/background.jpg");
 }

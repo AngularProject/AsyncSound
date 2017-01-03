@@ -4,7 +4,7 @@ import { Observable } from 'rxjs/Observable';
 
 import { HttpOptionsService } from './http.options.service';
 
-const REGISTER_URL =  process.env.REGISTER_URL || 'http://localhost:3000/auth/register';
+const REGISTER_URL =  'https://async-sound-server.herokuapp.com/auth/register';
 
 @Injectable()
 export class RegisterService {

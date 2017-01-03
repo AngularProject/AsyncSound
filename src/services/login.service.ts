@@ -7,9 +7,9 @@ import 'rxjs/add/operator/map';
 
 import { HttpOptionsService } from './http.options.service';
 
-const LOGIN_URL = process.env.LOGIN_URL || 'http://localhost:3000/auth/login';
-const LOGOUT_URL = process.env.LOGOUT_URL || 'http://localhost:3000/auth/logout';
-const EDIT_URL = process.env.EDIT_URL || 'http://localhost:3000/auth/edit';
+const LOGIN_URL = "https://async-sound-server.herokuapp.com/auth/login";
+const LOGOUT_URL = "https://async-sound-server.herokuapp.com/auth/logout";
+const EDIT_URL = "https://async-sound-server.herokuapp.com/auth/edit";
 
 @Injectable()
 export class LoginService {

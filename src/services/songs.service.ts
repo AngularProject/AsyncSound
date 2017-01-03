@@ -7,9 +7,9 @@ import 'rxjs/add/operator/map';
 
 import { HttpOptionsService } from './http.options.service';
 
-const SONG_URL = process.env.SONG_URL || 'http://localhost:3000/api/songs/';
-const SONG_CATEGORY_URL = process.env.SONG_CATEGORY_URL || 'http://localhost:3000/api/songs/category/';
-const SONG_SEARCH_URL = process.env.SONG_SEARCH_URL || 'http://localhost:3000/api/songs/search/';
+const SONG_URL = 'https://async-sound-server.herokuapp.com/api/songs/';
+const SONG_CATEGORY_URL = 'https://async-sound-server.herokuapp.com/api/songs/category/';
+const SONG_SEARCH_URL = 'https://async-sound-server.herokuapp.com/api/songs/search/';
 
 @Injectable()
 export class SongService {
