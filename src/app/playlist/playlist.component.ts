@@ -5,8 +5,8 @@ import { PlaylistService } from '../../services/playlist.service';
 import { SearchPlaylistPipe } from '../pipes/search.pipe';
 import { SortPlaylistsPipe } from '../pipes/sort.pipe';
 
-import { Playlist } from '../models/playlist';
-import { Comment } from '../models/comment';
+import { Playlist } from '../models/Playlist';
+import { Comment } from '../models/Comment';
 
 @Component({
   selector: 'app-playlist',
