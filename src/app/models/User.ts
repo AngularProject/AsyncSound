@@ -3,7 +3,7 @@ export class User {
     firstName: string;
     lastName: string;
     password: string;
-    roles: string[];
+    roles: any;
 
     constructor(username: string, firstName: string, lastName: string, password: string){
         this.username = username;
