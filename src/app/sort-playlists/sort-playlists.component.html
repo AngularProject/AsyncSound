@@ -1,18 +1,8 @@
-<!-- <div class="sort row col-xs-6">
-    <a class="btn dropdown-button teal lighten-2" data-activates="dropdown">Sort playlists
-    <i class="mdi-navigation-arrow-drop-down right"></i></a>
-    <ul id="dropdown" class="dropdown-content">
-        <li><a (click)="sortByChange('Title')">Title</a></li>
-        <li><a (click)="sortByChange('Creator')">Created by</a></li>
-        <li><a (click)="sortByChange('Created on')">Created on</a></li>
-    </ul>
-</div>
- -->
 <section class="container">
-	<div class="row">
-    	<div class="col s11">
-   			<input class="col-xs-6 s11" type="text" name="tb-sort" placeholder="Sort by title or creator" [(ngModel)]="sortText" (ngModelChange)="sortTextChange()">
-		</div>
-		<div class="col s1"><a class="btn-floating waves-effect waves-light"><i class="material-icons">sort_by_alpha</i></a></div>
-	</div>
+    <div class="row">
+        <div class="col s11">
+            <input class="col-xs-6 s11" type="text" name="tb-sort" placeholder="Sort by title or creator" [(ngModel)]="sortText" (ngModelChange)="sortTextChange()">
+        </div>
+        <div class="col s1"><a class="btn-floating waves-effect waves-light"><i class="material-icons">sort_by_alpha</i></a></div>
+    </div>
 </section>

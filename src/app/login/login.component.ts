@@ -26,12 +26,12 @@ export class LoginPageComponent implements OnInit {
   }
 
   ngOnInit() {
-      this.options = { 
-      timeOut: 2500, 
-      pauseOnHover: true, 
-      showProgressBar: false, 
-      animate: 'scale', 
-      position: ['right', 'top'] 
+      this.options = {
+      timeOut: 2500,
+      pauseOnHover: true,
+      showProgressBar: false,
+      animate: 'scale',
+      position: ['right', 'top']
     };
   }
 
@@ -39,7 +39,7 @@ export class LoginPageComponent implements OnInit {
     this.loginService
       .loginUser(this.model)
       .subscribe((response: any) => {
-          if(response.error) {
+          if (response.error) {
             this.notification.error('Login failed!', response.message);
           } else {
             localStorage.setItem('user', JSON.stringify(response));

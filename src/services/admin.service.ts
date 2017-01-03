@@ -6,9 +6,10 @@ import 'rxjs/add/operator/map';
 
 import { HttpOptionsService } from './http.options.service';
 
-const SET_ROLE_URL = 'http://localhost:3000/user-role';
-const GET_ADMINS_URL  = 'http://localhost:3000/all-admins';
-const REMOVE_ADMIN_URL = 'http://localhost:3000/remove-role';
+// const SET_ROLE_URL = ;
+const GET_ADMINS_URL  = process.env.GET_ADMINS_URL || 'http://localhost:3000/all-admins';
+const REMOVE_ADMIN_URL = process.env.REMOVE_ADMIN_URL || 'http://localhost:3000/remove-role';
+const SET_ROLE_URL = process.env.SET_ROLE_URL || 'http://localhost:3000/user-role';
 
 @Injectable()
 export class AdminService {
@@ -28,18 +29,17 @@ export class AdminService {
 
         if (!!currentUser) {
             let user = JSON.parse(localStorage.getItem('user'));
-            
-            if (user.roles.includes('admin')){
+
+            if (user.roles.includes('admin')) {
                 this.isUserAdmin = true;
             } else {
                 this.isUserAdmin = false;
             }
-           
+
             this.isUserAdminSubject.next(this.isUserAdmin);
         } else {
-
             this.isUserAdmin = false;
-            this.isUserAdminSubject.next(this.isUserAdmin);        
+            this.isUserAdminSubject.next(this.isUserAdmin);
         }
     }
 

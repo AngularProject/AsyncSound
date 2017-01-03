@@ -2,8 +2,8 @@ import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 
-const GET_PROFILE_INFO_URL = 'http://localhost:3000/profile/';
-const USER_AVATAR_URL = 'http://localhost:3000/api/avatar/';
+const GET_PROFILE_INFO_URL = process.env.GET_PROFILE_INFO_URL || 'http://localhost:3000/profile/';
+const USER_AVATAR_URL = process.env.USER_AVATAR_URL || 'http://localhost:3000/api/avatar/';
 
 @Injectable()
 export class ProfileService {

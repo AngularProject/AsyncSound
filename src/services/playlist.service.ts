@@ -9,12 +9,12 @@ import { HttpOptionsService } from './http.options.service';
 import { Playlist } from '../app/models/Playlist';
 import { Comment } from '../app/models/Comment';
 
-const PLAYLIST_URL = 'http://localhost:3000/api/playlists/';
-const GET_PLAYLISTS = 'http://localhost:3000/playlists';
-const GET_USER_PLAYLIST_URL = 'http://localhost:3000/user-playlists/';
-const CREATE_PLAYLIST_URL = 'http://localhost:3000/playlist/add';
-const PIN_PLAYLIST_URL = 'http://localhost:3000/pin-playlist';
-const UNPIN_PLAYLIST_URL = 'http://localhost:3000/unpin-playlist';
+const PLAYLIST_URL = process.env.PLAYLIST_URL || 'http://localhost:3000/api/playlists/';
+const GET_PLAYLISTS = process.env.GET_PLAYLISTS || 'http://localhost:3000/playlists';
+const GET_USER_PLAYLIST_URL = process.env.GET_USER_PLAYLIST_URL || 'http://localhost:3000/user-playlists/';
+const CREATE_PLAYLIST_URL = process.env.CREATE_PLAYLIST_URL || 'http://localhost:3000/playlist/add';
+const PIN_PLAYLIST_URL = process.env.PIN_PLAYLIST_URL || 'http://localhost:3000/pin-playlist';
+const UNPIN_PLAYLIST_URL = process.env.UNPIN_PLAYLIST_URL || 'http://localhost:3000/unpin-playlist';
 
 @Injectable()
 export class PlaylistService {

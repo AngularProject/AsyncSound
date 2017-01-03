@@ -2,7 +2,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({ name: 'search' })
 export class SearchPlaylistPipe implements PipeTransform {
-	transform(items: any[], searchPattern: string): any[] {
+    transform(items: any[], searchPattern: string): any[] {
         searchPattern = searchPattern || '';
         if (searchPattern === '') {
             return items;

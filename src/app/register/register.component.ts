@@ -20,17 +20,17 @@ export class RegisterComponent implements OnInit {
   constructor(
     private registerService: RegisterService,
     private router: Router,
-    private notification: NotificationsService) { 
+    private notification: NotificationsService) {
         this.model = new Register();
     }
 
   ngOnInit() {
-      this.options = { 
-      timeOut: 2500, 
-      pauseOnHover: true, 
-      showProgressBar: false, 
-      animate: 'scale', 
-      position: ['right', 'top'] 
+      this.options = {
+      timeOut: 2500,
+      pauseOnHover: true,
+      showProgressBar: false,
+      animate: 'scale',
+      position: ['right', 'top']
     };
   }
 
@@ -38,10 +38,10 @@ export class RegisterComponent implements OnInit {
       this.registerService
           .registerUser(this.model)
           .subscribe(response => {
-              if(response.error) {
-                  this.notification.error("Registration failed", response.error);
+              if (response.error) {
+                  this.notification.error('Registration failed', response.error);
               } else {
-                  this.notification.success("Registration succesful", response.message)
+                  this.notification.success('Registration succesful', response.message);
                   setTimeout(() => this.router.navigateByUrl('/login'), 1500);
               }
           });

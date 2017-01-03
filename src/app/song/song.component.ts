@@ -28,18 +28,20 @@ export class SongComponent implements OnInit {
   changedSize: string[];
   searchingSong: string;
 
-  constructor(private songService: SongService,
-              private notification: NotificationsService,
-              private activatedRoute: ActivatedRoute,
-              private router: Router) {
+  constructor(
+    private songService: SongService,
+    private notification: NotificationsService,
+    private activatedRoute: ActivatedRoute,
+    private router: Router) {
+
    }
 
   ngOnInit() {
     this.activatedRoute.params
-        .map(query=> query['title'])
-        .subscribe(title=>{
-            if(!!title) {
-              this.getSongByTitle(title)
+        .map(query => query['title'])
+        .subscribe(title => {
+            if (!!title) {
+              this.getSongByTitle(title);
             } else {
               this.getAllSongs();
             }
@@ -52,20 +54,19 @@ export class SongComponent implements OnInit {
      this.songService
          .getSongByTitle(title)
          .subscribe(response => {
-
-            if(response.error) {
+            if (response.error) {
               return;
             } else {
               this.songs = response as Song[];
             };
-        }, ()=> this.notification.error('Loading songs failed', 'Error'))
+        }, () => this.notification.error('Loading songs failed', 'Error'));
   }
 
   public getAllSongs() {
     this.songService
         .getAllSongs()
         .subscribe( response => {
-            if(response.error) {
+            if (response.error) {
               this.notification.error('Loading songs failed', response.message);
             } else {
               this.songs = response as Song[];
@@ -73,7 +74,7 @@ export class SongComponent implements OnInit {
               this.pages = Math.ceil(this.songs.length / this.pageSize);
               this.pagesNumbers = Array(this.pages).fill(0).map((x, page) => page + 1);
             };
-        }, ()=> this.notification.error('Loading songs failed', 'Error'))
+        }, () => this.notification.error('Loading songs failed', 'Error'));
   }
 
   public search() {
@@ -82,8 +83,8 @@ export class SongComponent implements OnInit {
 
     this.router.navigateByUrl(url);
   }
-  
-  private onPageClick(page: number){
+
+  private onPageClick(page: number) {
     this.currentPage = page;
   }
 }

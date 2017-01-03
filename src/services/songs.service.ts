@@ -7,15 +7,15 @@ import 'rxjs/add/operator/map';
 
 import { HttpOptionsService } from './http.options.service';
 
-const SONG_URL: string = 'http://localhost:3000/api/songs/';
-const SONG_CATEGORY_URL: string = 'http://localhost:3000/api/songs/category/';
-const SONG_SEARCH_URL: string = "http://localhost:3000/api/songs/search/"
+const SONG_URL = process.env.SONG_URL || 'http://localhost:3000/api/songs/';
+const SONG_CATEGORY_URL = process.env.SONG_CATEGORY_URL || 'http://localhost:3000/api/songs/category/';
+const SONG_SEARCH_URL = process.env.SONG_SEARCH_URL || 'http://localhost:3000/api/songs/search/';
 
 @Injectable()
 export class SongService {
 
      constructor(
-         private http: Http, 
+         private http: Http,
          private httpOptionsService: HttpOptionsService) {
     }
 

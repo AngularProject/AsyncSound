@@ -44,7 +44,7 @@ export class PlaylistDropdownComponent implements OnInit {
                 this.playlists = response as Array<any>;
                 localStorage.setItem('playlist', JSON.stringify(this.playlists));
               };
-          }, () => this.notification.error('Loading playlist failed', 'Error'))
+          }, () => this.notification.error('Loading playlist failed', 'Error'));
     } else {
         const playlists = JSON.parse(hasPlaylist);
         this.playlists = playlists;
@@ -59,16 +59,16 @@ export class PlaylistDropdownComponent implements OnInit {
         mp3Url: this.song.mp3Url,
         oggUrl: this.song.oggUrl
       }
-    }
+    };
 
     this.playlistService
         .addSongInPlaylist(data)
         .subscribe((response: any) => {
-          if(response.error) {
+          if (response.error) {
             this.notification.error('Adding song failed', response.message);
           } else {
             this.notification.success('Sync completed', 'Keep adding');
           }
-        },() => this.notification.error('Adding song failed', 'Please try again.'))
+        }, () => this.notification.error('Adding song failed', 'Please try again.'));
   }
 }

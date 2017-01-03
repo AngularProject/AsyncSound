@@ -30,7 +30,6 @@ export class PlaylistDetailedComponent implements OnInit {
     if (this.isLogged) {
         this.getUserPlaylist();
     }
-    // this.checkIfPinned();
   }
 
   addPlaylist() {
@@ -49,7 +48,6 @@ export class PlaylistDetailedComponent implements OnInit {
                             this.notification.success(`Playlist ${this.playlist.title} pinned successfully!`, response.message);
                         }
               });
-        
   }
 
   removePlaylist() {
@@ -85,6 +83,4 @@ export class PlaylistDetailedComponent implements OnInit {
           });
         });
     }
-
-
 }

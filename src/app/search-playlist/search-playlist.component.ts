@@ -7,14 +7,14 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 })
 export class SearchPlaylistComponent implements OnInit {
      @Output() onSearchTextChange: EventEmitter<string> = new EventEmitter<string>();
- 
+
      searchText: string;
- 
+
      constructor() { }
- 
+
      ngOnInit() {
      }
- 
+
      searchTextChange() {
          this.onSearchTextChange.emit(this.searchText);
      }

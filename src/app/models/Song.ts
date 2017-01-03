@@ -1,11 +1,11 @@
 export class Song {
-    audioId:String;
-    title:  String;
-    category: String;
-    duration:Number;
-    mp3Url: String;
-    oggUrl: String;
+    audioId: string;
+    title:  string;
+    category: string;
+    duration: number;
+    mp3Url: string;
+    oggUrl: string;
 
-    constructor(){
+    constructor() {
     }
 }

@@ -11,7 +11,7 @@ import { NotificationsService } from '../../node_modules/angular2-notifications'
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit{
+export class AppComponent implements OnInit {
   currentUser: User;
   options: Object;
   isUserLogged: Boolean;
@@ -36,7 +36,7 @@ export class AppComponent implements OnInit{
     if (this.isUserLogged) {
 
         this.currentUser = JSON.parse(localStorage.getItem('user'));
-        if (this.currentUser.roles.includes('admin')){
+        if (this.currentUser.roles.includes('admin')) {
           this.isUserAdmin = true;
         }
     }

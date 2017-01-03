@@ -8,27 +8,27 @@ const DEFAULT_BOX_SHADOW = '0 2px 2px 0 rgba(0,0,0,0.14), 0 1px 5px 0 rgba(0,0,0
 
 export class ZoomItemDirective {
   @Input('zoom-item') newSize: string[];
-  
+
   private currentElement: any;
   private isClicked: boolean;
 
   constructor(private element: ElementRef) { 
-  	this.currentElement = this.element.nativeElement;
-  	this.isClicked = false;
+    this.currentElement = this.element.nativeElement;
+    this.isClicked = false;
   }
 
   @HostListener('click') onClick() {
-  	if(this.isClicked) {
-  		this.isClicked = false;
-    	this.changeSize([null, null, null]);
+    if (this.isClicked) {
+      this.isClicked = false;
+      this.changeSize([null, null, null]);
 
-    	this.currentElement.style.left = '0';
-    	this.currentElement.style.top = '0';
-    	this.currentElement.style.boxShadow = DEFAULT_BOX_SHADOW;
-  	} else {
-  		this.isClicked = true;
-    	this.changeSize(this.newSize);
-  	}
+      this.currentElement.style.left = '0';
+      this.currentElement.style.top = '0';
+      this.currentElement.style.boxShadow = DEFAULT_BOX_SHADOW;
+    } else {
+        this.isClicked = true;
+        this.changeSize(this.newSize);
+    }
   }
 
   private changeSize(size: string[]) {

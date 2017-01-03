@@ -13,7 +13,7 @@ export class HomePageComponent implements OnInit {
   backgroundOpacity: number = 0.98;
   backgroundFilter: any[];
 
-  constructor() { 
+  constructor() {
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
   }
 
