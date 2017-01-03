@@ -4,8 +4,8 @@
   "license": "MIT",
   "angular-cli": {},
   "scripts": {
-    "start": "ng serve",
-    "heroku-prebuild": "npm install -g angular-cli",
+    "start": "http-server dist/",
+    "heroku-prebuild": "npm install -g http-server",
     "heroku-postbuild": "ng build --prod",
     "lint": "tslint \"src/**/*.ts\"",
     "test": "ng test",
@@ -17,7 +17,7 @@
     "@angular/common": "^2.3.1",
     "@angular/compiler": "^2.3.1",
     "@angular/core": "^2.3.1",
-    "@angular/forms": "^2.3.1", 
+    "@angular/forms": "^2.3.1",
     "@angular/http": "^2.3.1",
     "@angular/platform-browser": "^2.3.1",
     "@angular/platform-browser-dynamic": "^2.3.1",
@@ -31,17 +31,14 @@
     "ts-helpers": "^1.1.1",
     "underscore": "^1.8.3",
     "zone.js": "^0.7.2",
+    "angular-cli": "1.0.0-beta.20-4",
     "@angular/compiler-cli": "~2.1.0",
     "@types/jasmine": "~2.2.30",
     "@types/node": "~6.0.42",
-    "typescript": "~2.0.3"
+    "typescript": "~2.0.3",
+    "@types/underscore": "^1.7.36"
   },
   "devDependencies": {
-    "@angular/compiler-cli": "^2.3.1",
-    "@types/jasmine": "2.5.38",
-    "@types/node": "^6.0.42",
-    "@types/underscore": "^1.7.36",
-    "angular-cli": "1.0.0-beta.24",
     "codelyzer": "~2.0.0-beta.1",
     "jasmine-core": "2.5.2",
     "jasmine-spec-reporter": "2.5.0",
@@ -53,6 +50,7 @@
     "protractor": "~4.0.13",
     "ts-node": "1.2.1",
     "tslint": "^4.0.2",
-    "typescript": "~2.0.3"
+    "typescript": "~2.0.3",
+    "webdriver-manager": "10.2.5"
   }
 }
