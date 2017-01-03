@@ -26,31 +26,35 @@ export class PlaylistDetailedComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getUserPlaylist();
     this.isLogged = !!localStorage.getItem('user');
+    if (this.isLogged) {
+        this.getUserPlaylist();
+    }
     // this.checkIfPinned();
   }
 
   addPlaylist() {
-    let user = JSON.parse(localStorage.getItem('user')).username;
-    let body = {
-      user,
-      playlist: this.playlist
-    };
+        let user = JSON.parse(localStorage.getItem('user')).username;
+            let body = {
+              user,
+              playlist: this.playlist
+            };
 
-    this.playlistService.pinPlaylist(body)
-      .subscribe((response: any) => {
-           if (response.error) {
-                    this.notification.error('Something went wrong', response.error);
-                } else {
-                    this.isAdded = true;
-                    this.notification.success(`Playlist ${this.playlist.title} pinned successfully!`, response.message);
-                }
-      });
+            this.playlistService.pinPlaylist(body)
+              .subscribe((response: any) => {
+                  if (response.error) {
+                            this.notification.error('Something went wrong', response.error);
+                        } else {
+                            this.isAdded = true;
+                            this.notification.success(`Playlist ${this.playlist.title} pinned successfully!`, response.message);
+                        }
+              });
+        
   }
 
   removePlaylist() {
-     let user = JSON.parse(localStorage.getItem('user')).username;
+
+         let user = JSON.parse(localStorage.getItem('user')).username;
       let body = {
         user,
         playlist: this.playlist
@@ -66,9 +70,10 @@ export class PlaylistDetailedComponent implements OnInit {
                     this.notification.success(`Playlist ${this.playlist.title} unpinned successfully!`, response.message);
                 }
       });
-  }
-  
-   private getUserPlaylist() {
+
+    }
+
+    private getUserPlaylist() {
       let us = JSON.parse(localStorage.getItem('user'));
       this.playlistService.getAllPlaylistsOfUser(us.username)
         .subscribe((response: any) => {

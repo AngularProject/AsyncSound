@@ -46,6 +46,7 @@ import {
 
 import { AuthGuard } from './guard/auth.guard';
 import { AdminGuard } from './guard/admin.guard';
+import { UserProfileGuard } from './guard/user-profile-guard';
 
 import { HighlighterDirective } from './directives/highlighter.directive';
 import { ZoomItemDirective } from './directives/zoom-item.directive';
@@ -88,6 +89,7 @@ import { BlurBackgroundDirective } from './directives/blur-background.directive'
   providers: [
     AuthGuard,
     AdminGuard,
+    UserProfileGuard,
     HttpOptionsService,
     RegisterService,
     LoginService,
