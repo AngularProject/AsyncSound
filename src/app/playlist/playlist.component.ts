@@ -21,14 +21,12 @@ export class PlaylistComponent implements OnInit {
   currentTime: any;
 
   searchByText: string;
-  sortByProperty: string;
+  sortByText: string;
 
   constructor(private playlistService: PlaylistService) {
   }
 
   ngOnInit() {
-    let testComment = new Comment('mnogo qk playlist', 'lud fen', Date.now(), ['1'], ['0']);
-    
         this.playlistService.getAllPlaylists()
         .subscribe((response: any) => {
             this.playlists = response;
@@ -39,22 +37,7 @@ export class PlaylistComponent implements OnInit {
     this.searchByText = searchValue;
   }
 
-    onSortTextChange(sortValue: string) {
-        let updatedValue: string;
-        switch (sortValue) {
-            case 'Title':
-                updatedValue = 'title';
-                break;
-            case 'Created by':
-                updatedValue = 'creator';
-                break;
-            case 'Created on':
-                updatedValue = 'createdOn';
-                break;
-            default:
-                updatedValue = '';
-        }
-
-        this.sortByProperty = updatedValue;
-    }
+  onSortTextChange(sortValue: string) {
+    this.sortByText = sortValue;
+  }
 }

@@ -6,25 +6,17 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
   styleUrls: ['./sort-playlists.component.css']
 })
 export class SortPlaylistsComponent implements OnInit {
-  @Output() onUpdateSortBy: EventEmitter<string>;
+  @Output() onSortTextChange: EventEmitter<string> = new EventEmitter<string>();
 
-    sortBy: string;
+    sortText: string;
 
     constructor() {
-        this.onUpdateSortBy = new EventEmitter<string>();
-
-        this.sortBy = 'Created on';
     }
 
     ngOnInit() {
     }
 
-    sortByChange(updatedValue: string) {
-        if (!updatedValue || typeof updatedValue !== 'string') {
-            updatedValue = 'Created on';
-        }
-
-        this.sortBy = updatedValue;
-        this.onUpdateSortBy.emit(this.sortBy);
+    sortTextChange(updatedValue: string) {
+        this.onSortTextChange.emit(this.sortText);
     }
 }

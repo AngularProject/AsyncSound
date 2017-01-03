@@ -1,5 +1,5 @@
 <app-search-playlist (onSearchTextChange)="onSearchTextChange($event)"></app-search-playlist>
-<app-sort-playlists (onSortByChange)="onSortByChange($event)"></app-sort-playlists>
+<app-sort-playlists (onSortTextChange)="onSortTextChange($event)"></app-sort-playlists>
 <div class="container main s12 center row">
     <div app-detail-playlist *ngFor="let playlist of (playlists | search: searchByText | sort: sortByText); let i = index" [playlist]="playlist" data-offset="80">
     </div>
