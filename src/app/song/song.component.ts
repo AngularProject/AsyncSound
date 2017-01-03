@@ -1,7 +1,7 @@
 import { Component, OnInit, Output } from '@angular/core';
 
 import { Song } from '../models/Song';
-import { SongService, PageService } from '../../services';
+import { SongService } from '../../services';
 import { NotificationsService } from '../../../node_modules/angular2-notifications';
 import { Router, ActivatedRoute } from '@angular/router';
 
@@ -26,10 +26,10 @@ export class SongComponent implements OnInit {
   newHeigth: string = '80px';
   newPadding: string = '-10px';
   changedSize: string[];
+  searchingSong: string;
 
   constructor(private songService: SongService,
               private notification: NotificationsService,
-              private pageService: PageService,
               private activatedRoute: ActivatedRoute,
               private router: Router) {
    }
@@ -76,8 +76,11 @@ export class SongComponent implements OnInit {
         }, ()=> this.notification.error('Loading songs failed', 'Error'))
   }
 
-  private onSearchTextChange(searchValue: string) {
-    this.searchByText = searchValue;
+  public search() {
+    let url = '/songs/' + this.searchingSong;
+    this.searchingSong = '';
+
+    this.router.navigateByUrl(url);
   }
   
   private onPageClick(page: number){
