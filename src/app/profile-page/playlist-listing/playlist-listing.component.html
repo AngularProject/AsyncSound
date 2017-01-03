@@ -1,10 +1,4 @@
 <div class="container main s12 center row">
-    <h1>My playlists:</h1>
-    <div app-detail-playlist *ngFor="let playlist of playlists; let i = index" [playlist]="playlist" data-offset="80">
-    </div>
-</div>
-<div class="container main s12 center row">
-    <h1>Pinned playlists:</h1>
-    <div app-detail-playlist *ngFor="let playlist of playlists; let i = index" [playlist]="playlist" data-offset="80">
+    <div app-detail-playlist *ngFor="let playlist of playlists; let i = index" (delete)="deleted($event)" [playlist]="playlist" data-offset="80">
     </div>
 </div>

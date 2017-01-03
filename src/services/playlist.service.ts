@@ -14,6 +14,7 @@ const GET_PLAYLISTS = 'http://localhost:3000/playlists';
 const GET_USER_PLAYLIST_URL = 'http://localhost:3000/user-playlists/';
 const CREATE_PLAYLIST_URL = 'http://localhost:3000/playlist/add';
 const PIN_PLAYLIST_URL = 'http://localhost:3000/pin-playlist';
+const UNPIN_PLAYLIST_URL = 'http://localhost:3000/unpin-playlist';
 
 @Injectable()
 export class PlaylistService {
@@ -75,6 +76,15 @@ export class PlaylistService {
 
 		return this.http
 			.post(PIN_PLAYLIST_URL, body, options)
+			.map((res: Response) => res.json());
+	 }
+
+	 removePlaylist(data) {
+		 	let body: string = JSON.stringify(data);
+		let options: RequestOptions = this.httpOptionsService.getRequestOptions(true);
+
+		return this.http
+			.post(UNPIN_PLAYLIST_URL, body, options)
 			.map((res: Response) => res.json());
 	 }
 }

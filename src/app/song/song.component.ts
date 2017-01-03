@@ -1,7 +1,7 @@
 import { Component, OnInit, Output } from '@angular/core';
 
 import { Song } from '../models/Song';
-import { SongService, PageService } from '../../services';
+import { SongService } from '../../services';
 import { NotificationsService } from '../../../node_modules/angular2-notifications';
 import { Router, ActivatedRoute } from '@angular/router';
 
@@ -15,7 +15,7 @@ export class SongComponent implements OnInit {
   @Output() song;
 
   songs: Song[];
-  searchingSong: string;
+  searchByText: string;
 
   currentPage: number = 1;
   pageSize: number = 10;
@@ -26,10 +26,10 @@ export class SongComponent implements OnInit {
   newHeigth: string = '80px';
   newPadding: string = '-10px';
   changedSize: string[];
+  searchingSong: string;
 
   constructor(private songService: SongService,
               private notification: NotificationsService,
-              private pageService: PageService,
               private activatedRoute: ActivatedRoute,
               private router: Router) {
    }

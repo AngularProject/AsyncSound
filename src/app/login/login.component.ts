@@ -43,11 +43,12 @@ export class LoginPageComponent implements OnInit {
             this.notification.error('Login failed!', response.message);
           } else {
             localStorage.setItem('user', JSON.stringify(response));
+            // localStorage.setItem('playlist', JSON.stringify(response))
             this.userService.setUserLogged();
             this.adminService.setUserAdmin();
             this.notification.success('Login successful!', 'Welcome');
             setTimeout(() => this.router.navigateByUrl('/home'), 1500);
           }
-      },() => this.notification.error('Login failed!', 'Please try again.'));
+      }, () => this.notification.error('Login failed!', 'Please try again.'));
   }
 }
