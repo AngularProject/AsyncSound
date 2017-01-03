@@ -16,8 +16,6 @@ import { EditInformationComponent } from './profile-page/edit-information/edit-i
 
 import { AuthGuard } from './guard/auth.guard';
 import { AdminGuard } from './guard/admin.guard';
-import { UserProfileGuard } from './guard/user-profile-guard';
-
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -25,11 +23,10 @@ const routes: Routes = [
   { path: 'about', component: AboutPageComponent },
   { path: 'profile/:username', component: ProfilePageComponent, canActivate: [AuthGuard],
     children: [
-      { path: 'create-playlist', component: PlaylistCreationComponent, canActivate: [UserProfileGuard] },
+      { path: 'create-playlist', component: PlaylistCreationComponent },
       { path: 'user-playlists', component: PlaylistListingComponent },
-      { path: 'edit-information', component: EditInformationComponent, canActivate: [UserProfileGuard] }
+      { path: 'edit-information', component: EditInformationComponent }
   ] },
-  // { path: 'profile', component: ProfilePageComponent, canActivate: [AuthGuard] },
   { path: 'admin', component: AdminPageComponent, canActivate: [AdminGuard] },
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginPageComponent },
