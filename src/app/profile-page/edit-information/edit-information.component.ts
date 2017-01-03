@@ -40,6 +40,11 @@ export class EditInformationComponent implements OnInit {
                     localStorage.removeItem('user');
                     localStorage.setItem('user', JSON.stringify(response));
                     this.model.password = '';
+
+                    let updatedUser = JSON.parse(localStorage.getItem('user'));
+                    let url = "/profile/" + updatedUser._id;
+
+                    this.router.navigateByUrl(url);
                 }
             }, ()=> this.notification.error("Editing failed", "Try again later!"))
     }

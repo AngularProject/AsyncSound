@@ -23,30 +23,4 @@ export class UserService {
         this.isUserLogged = !!localStorage.getItem('user');
         this.isUserLoggedSubject.next(this.isUserLogged);
     }
-
-    getAllUsers() {
-        // return this.http.get('/api/users');
-        return this.users;
-    }
-
-    getUserByUsername(username: string) {
-        // return this.http.get('/api/users/username');
-        return this.users.find(x => x.username === username);
-    }
-
-    createUser(user: User) {
-        // return this.http.post('/api/users', user, this.jwt()).map((response: Response) => response.json());        
-        this.users.push(user);
-    }
-
-    loginUser(username: string, password: string) {
-        // TODO: Make call to server!
-        let foundUser = this.users.find(user => user.username === username && user.password === password);
-        console.log(foundUser);
-        localStorage.setItem('loggedUser', JSON.stringify(foundUser));
-    }
-
-    logoutUser() {
-        localStorage.removeItem('user');
-    }
 }

@@ -23,7 +23,6 @@ export class AppComponent implements OnInit{
       private router: Router,
       private notification: NotificationsService,
       private adminService: AdminService) {
-    this.isUserLogged = !!localStorage.getItem('user');
     this.options = {
       timeOut: 2500,
       pauseOnHover: true,
@@ -32,10 +31,12 @@ export class AppComponent implements OnInit{
       position: ['right', 'top']
     };
 
-    this.currentUser = JSON.parse(localStorage.getItem('user'));
+    this.isUserLogged = !!localStorage.getItem('user');
 
-    if (!!this.currentUser) {
-        if (this.currentUser.roles.indexOf('admin') >= 0){
+    if (this.isUserLogged) {
+
+        this.currentUser = JSON.parse(localStorage.getItem('user'));
+        if (this.currentUser.roles.includes('admin')){
           this.isUserAdmin = true;
         }
     }
@@ -54,6 +55,7 @@ export class AppComponent implements OnInit{
   logout() {
     this.loginService.logoutUser();
     this.userService.setUserLogged();
+    this.adminService.setUserAdmin();
     this.notification.success('Logged out successfully', 'Goodbye :)');
     setTimeout(() => this.router.navigateByUrl('/'), 1000);
   }

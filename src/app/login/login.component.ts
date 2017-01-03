@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 
 import { NotificationsService } from '../../../node_modules/angular2-notifications';
 
-import { UserService, LoginService } from '../../services';
+import { UserService, LoginService, AdminService } from '../../services';
 
 @Component({
   selector: 'app-login-page',
@@ -19,6 +19,7 @@ export class LoginPageComponent implements OnInit {
   constructor(
   private userService: UserService,
   private loginService: LoginService,
+  private adminService: AdminService,
   private notification: NotificationsService,
   private router: Router) {
     this.model = new Login();
@@ -44,6 +45,7 @@ export class LoginPageComponent implements OnInit {
             localStorage.setItem('user', JSON.stringify(response));
             // localStorage.setItem('playlist', JSON.stringify(response))
             this.userService.setUserLogged();
+            this.adminService.setUserAdmin();
             this.notification.success('Login successful!', 'Welcome');
             setTimeout(() => this.router.navigateByUrl('/home'), 1500);
           }
