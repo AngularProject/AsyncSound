@@ -9,7 +9,7 @@ import { ProfileService } from '../../services/profile.service';
 import { PlaylistService } from '../../services/playlist.service';
 
 // TODO: user should be able to change it's avatar
-const DEFAULT_AVATAR_URL = 'http://localhost:3000/static/images/default-avatar.png';
+const DEFAULT_AVATAR_URL = 'https://async-sound-server.herokuapp.com/static/images/default-avatar.png';
 
 @Component({
   selector: 'app-profile-page',

@@ -5,7 +5,7 @@ import { AdminService} from '../../services/admin.service';
 
 import { NotificationsService } from '../../../node_modules/angular2-notifications';
 
-const DEFAULT_AVATAR_URL = 'http://localhost:3000/static/images/default-avatar.png';
+const DEFAULT_AVATAR_URL = 'https://async-sound-server.herokuapp.com/static/images/default-avatar.png';
 
 @Component({
   selector: '[app-admin-list]',
