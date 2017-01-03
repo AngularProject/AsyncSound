@@ -23,10 +23,13 @@ export class PlaylistListingComponent implements OnInit {
 
       private getUserPlaylist() {
       let us = JSON.parse(localStorage.getItem('user'));
-      this.playlistService.getUserPlaylists(us.username)
-         .subscribe((response: any) => {
+      this.playlistService.getAllPlaylistsOfUser(us.username)
+        .subscribe((response: any) => {
            this.playlists = response;
-           console.log(this.playlists);
         });
+    }
+
+    deleted(event) {
+        this.getUserPlaylist();
     }
 }
